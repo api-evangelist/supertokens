@@ -1,0 +1,38 @@
+aid: supertokens
+name: SuperTokens
+description: >-
+  SuperTokens is an open source authentication solution providing session management, social login, email/password auth, and passwordless flows for web and mobile apps.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Authentication
+  - Open Source
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/apis.yml
+created: '2026-03-25'
+modified: '2026-03-25'
+specificationVersion: '0.19'
+apis:
+  - aid: supertokens:supertokens
+    name: SuperTokens
+    description: >-
+      SuperTokens is an open source authentication solution providing session management, social login, email/password auth, and passwordless flows for web and mobile apps.
+    humanURL: https://supertokens.com
+    tags:
+      - Authentication
+      - Open Source
+    properties:
+      - type: Documentation
+        url: https://supertokens.com/docs
+      - type: GitHub Repository
+        url: https://github.com/supertokens/supertokens-core
+common:
+  - type: Website
+    url: https://supertokens.com
+  - type: Documentation
+    url: https://supertokens.com/docs
+  - type: GitHub Organization
+    url: https://github.com/supertokens/supertokens-core
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
