@@ -1,0 +1,209 @@
+vocabulary:
+  title: SuperTokens Vocabulary
+  description: >-
+    Domain vocabulary for SuperTokens open source authentication covering session
+    management, authentication recipes, multi-tenancy, user metadata, and SDK integration concepts.
+  version: '1.0'
+  created: '2026-05-02'
+  modified: '2026-05-02'
+  tags:
+    - SuperTokens
+    - Authentication
+    - Identity
+    - Open Source
+  terms:
+    - term: supertokens-core
+      label: SuperTokens Core
+      definition: >-
+        The central HTTP service (written in Java) that handles all authentication
+        logic and database operations. Backend SDKs communicate with this service
+        via the Core Driver Interface (CDI) API. Can be self-hosted or managed via
+        supertokens.io.
+      related:
+        - CDI
+        - Backend SDK
+
+    - term: CDI
+      label: Core Driver Interface
+      definition: >-
+        The REST API exposed by supertokens-core. Backend SDKs (Node.js, Python, Go)
+        use this interface to perform auth operations. Versioned independently from
+        frontend interfaces.
+      related:
+        - supertokens-core
+        - Backend SDK
+
+    - term: FDI
+      label: Frontend Driver Interface
+      definition: >-
+        The API used by frontend SDKs to communicate with backend SDKs. Enables
+        pre-built UI components and custom frontends to trigger authentication flows.
+      related:
+        - CDI
+        - Frontend SDK
+
+    - term: Recipe
+      label: Authentication Recipe
+      definition: >-
+        A self-contained authentication flow module in SuperTokens. Examples include
+        EmailPassword, Passwordless, ThirdParty, Session, EmailVerification, and
+        UserRoles. Recipes can be combined and configured independently.
+      related:
+        - EmailPassword
+        - Passwordless
+        - ThirdParty
+
+    - term: Session
+      label: Session
+      definition: >-
+        A SuperTokens authentication session identified by a unique handle. Includes
+        an access token (JWT) and refresh token. Session data can be stored in the
+        JWT (client-side) or database (server-side).
+      related:
+        - SessionHandle
+        - AccessToken
+        - RefreshToken
+
+    - term: SessionHandle
+      label: Session Handle
+      definition: >-
+        A unique identifier for a SuperTokens session stored in the database. Used
+        to revoke sessions, retrieve session data, and update session metadata.
+      related:
+        - Session
+
+    - term: AccessToken
+      label: Access Token
+      definition: >-
+        A short-lived JWT issued by SuperTokens containing user ID, session handle,
+        and userDataInJWT payload. Sent by clients on every authenticated request.
+        Default expiry is 1 hour.
+      related:
+        - RefreshToken
+        - Session
+
+    - term: RefreshToken
+      label: Refresh Token
+      definition: >-
+        A long-lived opaque token used to obtain new access tokens when they expire.
+        Stored server-side and rotated on each use (refresh token rotation). Default
+        expiry is 100 days.
+      related:
+        - AccessToken
+        - TokenTheft
+
+    - term: TokenTheft
+      label: Token Theft Detection
+      definition: >-
+        A security mechanism in SuperTokens that detects when a refresh token is
+        used after it has already been rotated, indicating a potential stolen token.
+        Triggers revocation of all sessions for the user.
+      related:
+        - RefreshToken
+        - Security
+
+    - term: AntiCsrfToken
+      label: Anti-CSRF Token
+      definition: >-
+        An optional token included in session creation to prevent cross-site request
+        forgery attacks. Required when using cookie-based sessions in browser clients.
+      related:
+        - Session
+        - Security
+
+    - term: EmailPassword
+      label: Email/Password Recipe
+      definition: >-
+        The SuperTokens recipe for traditional email and password authentication.
+        Handles sign-up, sign-in, password reset, and email format validation.
+      related:
+        - Recipe
+        - Passwordless
+
+    - term: Passwordless
+      label: Passwordless Recipe
+      definition: >-
+        The SuperTokens recipe for OTP (one-time password) and magic link
+        authentication without requiring a password. Supports email and SMS delivery.
+      related:
+        - Recipe
+        - OTP
+        - MagicLink
+
+    - term: ThirdParty
+      label: Third-Party Recipe
+      definition: >-
+        The SuperTokens recipe for social/OAuth login via providers like Google,
+        GitHub, Apple, Facebook, Twitter, and custom OAuth2 providers.
+      related:
+        - Recipe
+        - OAuth
+
+    - term: EmailVerification
+      label: Email Verification Recipe
+      definition: >-
+        The SuperTokens recipe for verifying user email addresses by sending
+        verification tokens. Can be configured as required (REQUIRED) or optional.
+      related:
+        - Recipe
+        - Token
+
+    - term: UserMetadata
+      label: User Metadata Recipe
+      definition: >-
+        The SuperTokens recipe providing key-value metadata storage per user.
+        Metadata is stored server-side and not included in session tokens.
+        Supports shallow-merge updates.
+      related:
+        - Recipe
+        - User
+
+    - term: UserRoles
+      label: User Roles Recipe
+      definition: >-
+        The SuperTokens recipe for role-based access control (RBAC). Roles can
+        have associated permissions and be assigned to users per-tenant.
+      related:
+        - Recipe
+        - RBAC
+        - Permissions
+
+    - term: MultiTenancy
+      label: Multi-Tenancy Recipe
+      definition: >-
+        The SuperTokens recipe enabling a single SuperTokens Core instance to
+        serve multiple isolated applications or customer tenants, each with their
+        own user pool and authentication configuration.
+      related:
+        - Tenant
+        - TenantId
+
+    - term: TenantId
+      label: Tenant ID
+      definition: >-
+        A string identifier for a tenant in multi-tenant deployments. The default
+        tenant is "public". All operations can be scoped to a tenant by including
+        the tenantId in the request.
+      related:
+        - MultiTenancy
+
+    - term: BackendSDK
+      label: Backend SDK
+      definition: >-
+        Language-specific libraries that wrap the CDI API to provide middleware,
+        helper functions, and pre-built authentication logic for application backends.
+        Available for Node.js, Python, and Go.
+      related:
+        - CDI
+        - supertokens-node
+        - supertokens-python
+        - supertokens-golang
+
+    - term: PreAuthSessionId
+      label: Pre-Auth Session ID
+      definition: >-
+        A temporary identifier created when initiating a passwordless flow. Ties
+        together the code creation and consumption steps before a session is created.
+      related:
+        - Passwordless
+        - Session

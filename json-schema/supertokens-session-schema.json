@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/supertokens/main/json-schema/supertokens-session-schema.json",
+  "title": "SuperTokens Session",
+  "description": "JSON Schema for a SuperTokens authentication session resource.",
+  "type": "object",
+  "properties": {
+    "handle": {
+      "type": "string",
+      "description": "Unique session handle identifier"
+    },
+    "userId": {
+      "type": "string",
+      "description": "User ID this session belongs to"
+    },
+    "userDataInJWT": {
+      "type": "object",
+      "description": "Arbitrary data embedded in the JWT access token",
+      "additionalProperties": true
+    },
+    "userDataInDatabase": {
+      "type": "object",
+      "description": "Arbitrary data stored in the database for this session",
+      "additionalProperties": true
+    },
+    "tenantId": {
+      "type": "string",
+      "description": "Tenant ID for multi-tenant deployments"
+    },
+    "recipeUserId": {
+      "type": "string",
+      "description": "Recipe-specific user ID (may differ from primary userId in account linking)"
+    },
+    "expiry": {
+      "type": "integer",
+      "description": "Session expiry timestamp in milliseconds since epoch"
+    },
+    "timeCreated": {
+      "type": "integer",
+      "description": "Session creation timestamp in milliseconds since epoch"
+    }
+  },
+  "required": ["handle", "userId"],
+  "$defs": {
+    "Token": {
+      "type": "object",
+      "description": "A SuperTokens token (access or refresh)",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "The token string value"
+        },
+        "expiry": {
+          "type": "integer",
+          "description": "Token expiry time in milliseconds"
+        },
+        "createdTime": {
+          "type": "integer",
+          "description": "Token creation time in milliseconds"
+        }
+      },
+      "required": ["token", "expiry"]
+    },
+    "User": {
+      "type": "object",
+      "description": "A SuperTokens user",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique user ID"
+        },
+        "emails": {
+          "type": "array",
+          "items": { "type": "string", "format": "email" }
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "timeJoined": {
+          "type": "integer",
+          "description": "Timestamp when user first signed up"
+        },
+        "tenantIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["id", "timeJoined"]
+    }
+  }
+}

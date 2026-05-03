@@ -1,0 +1,1194 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface
+  description: >-
+    The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core
+    HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with
+    the core service for authentication operations including session management, user
+    sign-up/sign-in, email verification, password reset, social login, passwordless
+    authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+  - url: http://{host}:{port}
+    description: SuperTokens Core service
+    variables:
+      host:
+        default: localhost
+        description: Hostname of the SuperTokens Core instance
+      port:
+        default: '3567'
+        description: Port number of the SuperTokens Core instance
+tags:
+  - name: Health
+    description: Service health and version checks
+  - name: Sessions
+    description: Session creation, verification, refresh, and revocation
+  - name: Email Password
+    description: Email and password sign-up, sign-in, and password management
+  - name: Passwordless
+    description: Passwordless OTP and magic link authentication
+  - name: Third Party
+    description: Social/OAuth third-party provider authentication
+  - name: Email Verification
+    description: Email verification token creation and validation
+  - name: User Metadata
+    description: User metadata storage and retrieval
+  - name: Multi Tenancy
+    description: Tenant and app management
+  - name: User Roles
+    description: User role assignment and management
+  - name: Users
+    description: User management and listing
+paths:
+  /hello:
+    get:
+      operationId: getHealth
+      summary: Get Service Health
+      description: Returns a health check response confirming the SuperTokens Core service is running.
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+  /apiversion:
+    get:
+      operationId: getApiVersion
+      summary: Get API Version
+      description: Returns the supported CDI API versions for this Core instance.
+      tags:
+        - Health
+      responses:
+        '200':
+          description: API version information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiVersionResponse'
+  /recipe/session:
+    post:
+      operationId: createSession
+      summary: Create Session
+      description: Creates a new authentication session for a user, generating access and refresh tokens.
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+      responses:
+        '200':
+          description: Session created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSessionResponse'
+    get:
+      operationId: getSession
+      summary: Get Session
+      description: Verifies and retrieves a session using the access token.
+      tags:
+        - Sessions
+      parameters:
+        - name: accessToken
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The access token to verify
+        - name: doAntiCsrfCheck
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Whether to perform anti-CSRF check
+      responses:
+        '200':
+          description: Session is valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSessionResponse'
+        '401':
+          description: Access token has expired or is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /recipe/session/refresh:
+    post:
+      operationId: refreshSession
+      summary: Refresh Session
+      description: Creates a new session using a refresh token, rotating both access and refresh tokens.
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshSessionRequest'
+      responses:
+        '200':
+          description: Session refreshed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSessionResponse'
+        '401':
+          description: Refresh token is expired or invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /recipe/session/remove:
+    post:
+      operationId: removeSessions
+      summary: Remove Sessions
+      description: Revokes one or more sessions by session handle or user ID.
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveSessionsRequest'
+      responses:
+        '200':
+          description: Sessions removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveSessionsResponse'
+  /recipe/session/data:
+    get:
+      operationId: getSessionData
+      summary: Get Session Data
+      description: Retrieves the custom session data stored for a session handle.
+      tags:
+        - Sessions
+      parameters:
+        - name: sessionHandle
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The session handle to retrieve data for
+      responses:
+        '200':
+          description: Session data retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionDataResponse'
+    put:
+      operationId: updateSessionData
+      summary: Update Session Data
+      description: Updates the custom session data stored for a session handle.
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSessionDataRequest'
+      responses:
+        '200':
+          description: Session data updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /recipe/signup:
+    post:
+      operationId: emailPasswordSignUp
+      summary: Email Password Sign Up
+      description: Creates a new user account with email and password credentials.
+      tags:
+        - Email Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpRequest'
+      responses:
+        '200':
+          description: User created successfully or email already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignUpResponse'
+  /recipe/signin:
+    post:
+      operationId: emailPasswordSignIn
+      summary: Email Password Sign In
+      description: Authenticates a user with email and password, returning user information.
+      tags:
+        - Email Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInRequest'
+      responses:
+        '200':
+          description: Authentication successful or wrong credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignInResponse'
+  /recipe/user/password/reset/token:
+    post:
+      operationId: createResetPasswordToken
+      summary: Create Reset Password Token
+      description: Generates a password reset token for the specified user.
+      tags:
+        - Email Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordTokenRequest'
+      responses:
+        '200':
+          description: Password reset token generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetPasswordTokenResponse'
+  /recipe/user/password/reset:
+    post:
+      operationId: resetPassword
+      summary: Reset Password
+      description: Resets the user's password using a valid reset token.
+      tags:
+        - Email Password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+      responses:
+        '200':
+          description: Password reset successful or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /recipe/signinup/code:
+    post:
+      operationId: createPasswordlessCode
+      summary: Create Passwordless Code
+      description: Creates a one-time code (OTP) or magic link for passwordless authentication via email or phone.
+      tags:
+        - Passwordless
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePasswordlessCodeRequest'
+      responses:
+        '200':
+          description: Code created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePasswordlessCodeResponse'
+  /recipe/signinup/code/consume:
+    post:
+      operationId: consumePasswordlessCode
+      summary: Consume Passwordless Code
+      description: Validates and consumes a passwordless OTP or magic link code to authenticate the user.
+      tags:
+        - Passwordless
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsumePasswordlessCodeRequest'
+      responses:
+        '200':
+          description: Code consumed and user authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsumePasswordlessCodeResponse'
+  /recipe/signinup:
+    post:
+      operationId: thirdPartySignInUp
+      summary: Third Party Sign In / Up
+      description: Creates or retrieves a user account based on a third-party OAuth provider token (Google, GitHub, Apple, etc.).
+      tags:
+        - Third Party
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartySignInUpRequest'
+      responses:
+        '200':
+          description: User signed in or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThirdPartySignInUpResponse'
+  /recipe/user/email/verify/token:
+    post:
+      operationId: createEmailVerificationToken
+      summary: Create Email Verification Token
+      description: Generates an email verification token for the specified user and email.
+      tags:
+        - Email Verification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailVerificationTokenRequest'
+      responses:
+        '200':
+          description: Token created or email already verified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailVerificationTokenResponse'
+  /recipe/user/email/verify:
+    post:
+      operationId: verifyEmail
+      summary: Verify Email
+      description: Verifies a user's email address using the provided verification token.
+      tags:
+        - Email Verification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyEmailRequest'
+      responses:
+        '200':
+          description: Email verified or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    get:
+      operationId: isEmailVerified
+      summary: Is Email Verified
+      description: Checks whether a user's email has been verified.
+      tags:
+        - Email Verification
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: email
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Email verification status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsEmailVerifiedResponse'
+  /recipe/user/metadata:
+    get:
+      operationId: getUserMetadata
+      summary: Get User Metadata
+      description: Retrieves custom metadata stored for a user by userId.
+      tags:
+        - User Metadata
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: User ID to fetch metadata for
+      responses:
+        '200':
+          description: User metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMetadataResponse'
+    put:
+      operationId: updateUserMetadata
+      summary: Update User Metadata
+      description: Updates or merges custom metadata for a user. Fields are shallow-merged with existing metadata.
+      tags:
+        - User Metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetadataRequest'
+      responses:
+        '200':
+          description: Metadata updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMetadataResponse'
+    delete:
+      operationId: deleteUserMetadata
+      summary: Delete User Metadata
+      description: Deletes all metadata stored for a user.
+      tags:
+        - User Metadata
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Metadata deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /recipe/multitenancy/tenant:
+    post:
+      operationId: createOrUpdateTenant
+      summary: Create Or Update Tenant
+      description: Creates a new tenant or updates an existing tenant configuration in a multi-tenant setup.
+      tags:
+        - Multi Tenancy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+      responses:
+        '200':
+          description: Tenant created or updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResponse'
+    get:
+      operationId: getTenant
+      summary: Get Tenant
+      description: Retrieves the configuration for a specific tenant.
+      tags:
+        - Multi Tenancy
+      parameters:
+        - name: tenantId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The tenant ID to retrieve
+      responses:
+        '200':
+          description: Tenant configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResponse'
+  /recipe/multitenancy/tenant/list:
+    get:
+      operationId: listTenants
+      summary: List Tenants
+      description: Returns a list of all tenants configured in this SuperTokens app.
+      tags:
+        - Multi Tenancy
+      responses:
+        '200':
+          description: List of tenants
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTenantsResponse'
+  /users:
+    get:
+      operationId: listUsers
+      summary: List Users
+      description: Returns a paginated list of users with optional filtering by tenant and recipe type.
+      tags:
+        - Users
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 100
+          description: Maximum number of users to return
+        - name: paginationToken
+          in: query
+          schema:
+            type: string
+          description: Pagination token from previous response
+        - name: includeRecipeIds
+          in: query
+          schema:
+            type: string
+          description: Comma-separated list of recipe IDs to filter by
+      responses:
+        '200':
+          description: Paginated user list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponse'
+  /user/remove:
+    delete:
+      operationId: deleteUser
+      summary: Delete User
+      description: Permanently deletes a user and all their session, metadata, and authentication data.
+      tags:
+        - Users
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: User ID to delete
+      responses:
+        '200':
+          description: User deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /recipe/roles:
+    put:
+      operationId: createOrUpdateRole
+      summary: Create Or Update Role
+      description: Creates a new role or updates permissions for an existing role.
+      tags:
+        - User Roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRoleRequest'
+      responses:
+        '200':
+          description: Role created or updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    get:
+      operationId: listRoles
+      summary: List Roles
+      description: Returns all roles configured in the application.
+      tags:
+        - User Roles
+      responses:
+        '200':
+          description: List of roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRolesResponse'
+  /recipe/user/roles:
+    put:
+      operationId: assignRoleToUser
+      summary: Assign Role To User
+      description: Assigns a role to a specific user.
+      tags:
+        - User Roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignRoleRequest'
+      responses:
+        '200':
+          description: Role assigned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    get:
+      operationId: getUserRoles
+      summary: Get User Roles
+      description: Returns all roles assigned to a specific user.
+      tags:
+        - User Roles
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRolesResponse'
+    delete:
+      operationId: removeUserRole
+      summary: Remove User Role
+      description: Removes a role assignment from a user.
+      tags:
+        - User Roles
+      parameters:
+        - name: userId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: role
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Role removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)
+  schemas:
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [UNAUTHORISED, TOKEN_THEFT_DETECTED, TRY_REFRESH_TOKEN]
+        message:
+          type: string
+    ApiVersionResponse:
+      type: object
+      properties:
+        versions:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          example: OK
+    CreateSessionRequest:
+      type: object
+      required:
+        - userId
+        - userDataInJWT
+        - userDataInDatabase
+      properties:
+        userId:
+          type: string
+          description: Unique user identifier
+        userDataInJWT:
+          type: object
+          description: Data to embed in the JWT access token
+        userDataInDatabase:
+          type: object
+          description: Data to store in the database for this session
+        tenantId:
+          type: string
+          description: Optional tenant ID for multi-tenant apps
+    CreateSessionResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+        session:
+          $ref: '#/components/schemas/Session'
+        accessToken:
+          $ref: '#/components/schemas/Token'
+        refreshToken:
+          $ref: '#/components/schemas/Token'
+        antiCsrfToken:
+          type: string
+    Session:
+      type: object
+      description: A SuperTokens authentication session
+      properties:
+        handle:
+          type: string
+          description: Unique session handle
+        userId:
+          type: string
+          description: User ID this session belongs to
+        userDataInJWT:
+          type: object
+          description: Data stored in the JWT
+        tenantId:
+          type: string
+          description: Tenant ID for multi-tenant apps
+        recipeUserId:
+          type: string
+          description: Recipe-specific user ID
+    Token:
+      type: object
+      description: A token object with value and expiry
+      properties:
+        token:
+          type: string
+        expiry:
+          type: integer
+          description: Token expiry timestamp in milliseconds
+        createdTime:
+          type: integer
+    GetSessionResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        session:
+          $ref: '#/components/schemas/Session'
+        accessToken:
+          $ref: '#/components/schemas/Token'
+    RefreshSessionRequest:
+      type: object
+      required:
+        - refreshToken
+      properties:
+        refreshToken:
+          type: string
+        antiCsrfToken:
+          type: string
+        tenantId:
+          type: string
+    RemoveSessionsRequest:
+      type: object
+      properties:
+        sessionHandles:
+          type: array
+          items:
+            type: string
+          description: List of session handles to revoke
+        userId:
+          type: string
+          description: Remove all sessions for this user
+    RemoveSessionsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        sessionHandlesRevoked:
+          type: array
+          items:
+            type: string
+    SessionDataResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        userDataInDatabase:
+          type: object
+    UpdateSessionDataRequest:
+      type: object
+      required:
+        - sessionHandle
+        - userDataInDatabase
+      properties:
+        sessionHandle:
+          type: string
+        userDataInDatabase:
+          type: object
+    SignUpRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+        tenantId:
+          type: string
+    SignUpResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [OK, EMAIL_ALREADY_EXISTS_ERROR]
+        user:
+          $ref: '#/components/schemas/User'
+    SignInRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+        tenantId:
+          type: string
+    SignInResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [OK, WRONG_CREDENTIALS_ERROR]
+        user:
+          $ref: '#/components/schemas/User'
+    User:
+      type: object
+      description: A SuperTokens user object
+      properties:
+        id:
+          type: string
+          description: Unique user ID
+        emails:
+          type: array
+          items:
+            type: string
+        phoneNumbers:
+          type: array
+          items:
+            type: string
+        thirdParty:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              userId:
+                type: string
+        timeJoined:
+          type: integer
+          description: Unix timestamp when user joined
+        tenantIds:
+          type: array
+          items:
+            type: string
+        loginMethods:
+          type: array
+          items:
+            type: object
+    ResetPasswordTokenRequest:
+      type: object
+      required:
+        - userId
+        - email
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+          format: email
+    ResetPasswordTokenResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        token:
+          type: string
+    ResetPasswordRequest:
+      type: object
+      required:
+        - method
+        - token
+        - newPassword
+      properties:
+        method:
+          type: string
+          enum: [token]
+        token:
+          type: string
+        newPassword:
+          type: string
+          format: password
+    CreatePasswordlessCodeRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: User email for email-based passwordless
+        phoneNumber:
+          type: string
+          description: Phone number for SMS-based passwordless
+        tenantId:
+          type: string
+    CreatePasswordlessCodeResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        preAuthSessionId:
+          type: string
+        codeId:
+          type: string
+        deviceId:
+          type: string
+        userInputCode:
+          type: string
+          description: The OTP code to send to the user
+        linkCode:
+          type: string
+          description: The magic link code
+        timeCreated:
+          type: integer
+        codeLifetime:
+          type: integer
+    ConsumePasswordlessCodeRequest:
+      type: object
+      required:
+        - preAuthSessionId
+      properties:
+        preAuthSessionId:
+          type: string
+        userInputCode:
+          type: string
+          description: OTP entered by user
+        deviceId:
+          type: string
+        tenantId:
+          type: string
+    ConsumePasswordlessCodeResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [OK, INCORRECT_USER_INPUT_CODE_ERROR, EXPIRED_USER_INPUT_CODE_ERROR, RESTART_FLOW_ERROR]
+        createdNewUser:
+          type: boolean
+        user:
+          $ref: '#/components/schemas/User'
+    ThirdPartySignInUpRequest:
+      type: object
+      required:
+        - thirdPartyId
+        - thirdPartyUserId
+        - email
+      properties:
+        thirdPartyId:
+          type: string
+          description: Provider ID (e.g. google, github, apple)
+        thirdPartyUserId:
+          type: string
+          description: User ID from the third-party provider
+        email:
+          type: object
+          properties:
+            id:
+              type: string
+              format: email
+            isVerified:
+              type: boolean
+        tenantId:
+          type: string
+    ThirdPartySignInUpResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        createdNewUser:
+          type: boolean
+        user:
+          $ref: '#/components/schemas/User'
+    EmailVerificationTokenRequest:
+      type: object
+      required:
+        - userId
+        - email
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+          format: email
+        tenantId:
+          type: string
+    EmailVerificationTokenResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [OK, EMAIL_ALREADY_VERIFIED_ERROR]
+        token:
+          type: string
+    VerifyEmailRequest:
+      type: object
+      required:
+        - method
+        - token
+      properties:
+        method:
+          type: string
+          enum: [token]
+        token:
+          type: string
+        tenantId:
+          type: string
+    IsEmailVerifiedResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        isVerified:
+          type: boolean
+    UserMetadataResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        metadata:
+          type: object
+          description: Arbitrary key-value metadata for the user
+    UpdateUserMetadataRequest:
+      type: object
+      required:
+        - userId
+        - metadataUpdate
+      properties:
+        userId:
+          type: string
+        metadataUpdate:
+          type: object
+          description: Metadata fields to merge into existing metadata
+    TenantRequest:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        emailPasswordEnabled:
+          type: boolean
+        passwordlessEnabled:
+          type: boolean
+        thirdPartyEnabled:
+          type: boolean
+        coreConfig:
+          type: object
+    TenantResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        createdNew:
+          type: boolean
+        tenant:
+          type: object
+          properties:
+            tenantId:
+              type: string
+            emailPasswordEnabled:
+              type: boolean
+            passwordlessEnabled:
+              type: boolean
+            thirdPartyEnabled:
+              type: boolean
+    ListTenantsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        tenants:
+          type: array
+          items:
+            type: object
+            properties:
+              tenantId:
+                type: string
+    ListUsersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        nextPaginationToken:
+          type: string
+    CreateRoleRequest:
+      type: object
+      required:
+        - role
+      properties:
+        role:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    ListRolesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+    AssignRoleRequest:
+      type: object
+      required:
+        - userId
+        - role
+      properties:
+        userId:
+          type: string
+        role:
+          type: string
+        tenantId:
+          type: string
+    UserRolesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+security:
+  - ApiKeyAuth: []

@@ -1,0 +1,59 @@
+{
+  "@context": {
+    "@vocab": "https://supertokens.com/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "Session": "supertokens:Session",
+    "User": "schema:Person",
+    "Tenant": "supertokens:Tenant",
+    "Role": "supertokens:Role",
+    "handle": {
+      "@id": "supertokens:sessionHandle",
+      "@type": "xsd:string"
+    },
+    "userId": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "timeJoined": {
+      "@id": "schema:startDate",
+      "@type": "xsd:long"
+    },
+    "tenantId": {
+      "@id": "supertokens:tenantId",
+      "@type": "xsd:string"
+    },
+    "recipeUserId": {
+      "@id": "supertokens:recipeUserId",
+      "@type": "xsd:string"
+    },
+    "role": {
+      "@id": "schema:roleName",
+      "@type": "xsd:string"
+    },
+    "permissions": {
+      "@id": "schema:permissions",
+      "@type": "xsd:string"
+    },
+    "expiry": {
+      "@id": "supertokens:tokenExpiry",
+      "@type": "xsd:long"
+    },
+    "isVerified": {
+      "@id": "schema:isVerified",
+      "@type": "xsd:boolean"
+    },
+    "SoftwareApplication": "schema:SoftwareApplication",
+    "codeRepository": "schema:codeRepository",
+    "programmingLanguage": "schema:programmingLanguage"
+  }
+}

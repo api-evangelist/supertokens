@@ -1,0 +1,48 @@
+{
+  "description": "Create a new SuperTokens session after user authentication",
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:3567/recipe/session",
+    "headers": {
+      "Content-Type": "application/json",
+      "api-key": "your-supertokens-api-key",
+      "cdi-version": "5.1"
+    },
+    "body": {
+      "userId": "user-123",
+      "userDataInJWT": {
+        "role": "admin"
+      },
+      "userDataInDatabase": {
+        "lastLogin": "2026-05-02T10:00:00Z"
+      },
+      "tenantId": "public"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": "OK",
+      "session": {
+        "handle": "a8b2c3d4-e5f6-...",
+        "userId": "user-123",
+        "userDataInJWT": {
+          "role": "admin"
+        },
+        "tenantId": "public",
+        "recipeUserId": "user-123"
+      },
+      "accessToken": {
+        "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+        "expiry": 1746524400000,
+        "createdTime": 1746520800000
+      },
+      "refreshToken": {
+        "token": "7f3a9b1c2d4e5f6a...",
+        "expiry": 1746607200000,
+        "createdTime": 1746520800000
+      },
+      "antiCsrfToken": "csrf-abc123"
+    }
+  }
+}

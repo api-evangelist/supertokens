@@ -1,0 +1,38 @@
+{
+  "title": "SuperTokens Session Structure",
+  "description": "Hierarchical structure of a SuperTokens authentication session",
+  "structure": {
+    "handle": "string — unique session handle (e.g. 'abc123-...')",
+    "userId": "string — primary user ID",
+    "recipeUserId": "string — recipe-specific user ID (for account linking)",
+    "tenantId": "string — tenant ID for multi-tenant apps",
+    "userDataInJWT": {
+      "[key]": "any — arbitrary data embedded in the JWT access token"
+    },
+    "userDataInDatabase": {
+      "[key]": "any — arbitrary data stored server-side for this session"
+    },
+    "expiry": "integer — session expiry in milliseconds since epoch",
+    "timeCreated": "integer — session creation time in milliseconds"
+  },
+  "create_session_response": {
+    "status": "string — OK | error status",
+    "session": {
+      "handle": "string",
+      "userId": "string",
+      "userDataInJWT": "object",
+      "tenantId": "string"
+    },
+    "accessToken": {
+      "token": "string — JWT access token",
+      "expiry": "integer — expiry in ms",
+      "createdTime": "integer"
+    },
+    "refreshToken": {
+      "token": "string — refresh token",
+      "expiry": "integer",
+      "createdTime": "integer"
+    },
+    "antiCsrfToken": "string — CSRF protection token (if enabled)"
+  }
+}

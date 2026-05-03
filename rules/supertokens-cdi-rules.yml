@@ -1,0 +1,88 @@
+rules:
+  supertokens-operation-id-required:
+    description: All SuperTokens CDI operations must have an operationId
+    severity: error
+    given: $.paths[*][*]
+    then:
+      field: operationId
+      function: truthy
+
+  supertokens-summary-title-case:
+    description: Operation summaries must use Title Case
+    severity: warn
+    given: $.paths[*][*].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][a-zA-Z0-9]*([ \/][A-Z][a-zA-Z0-9]*)*$'
+
+  supertokens-tags-required:
+    description: All operations must have at least one tag
+    severity: warn
+    given: $.paths[*][*]
+    then:
+      field: tags
+      function: truthy
+
+  supertokens-status-in-response:
+    description: All 200 response bodies should contain a status field for error handling
+    severity: warn
+    given: $.paths[*][*].responses.200.content.application/json.schema.properties
+    then:
+      field: status
+      function: truthy
+
+  supertokens-api-key-security:
+    description: CDI API must define api-key security scheme
+    severity: error
+    given: $.components.securitySchemes
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required:
+            - ApiKeyAuth
+
+  supertokens-request-body-for-post:
+    description: POST operations must have a request body
+    severity: error
+    given: $.paths[*].post
+    then:
+      field: requestBody
+      function: truthy
+
+  supertokens-request-body-for-put:
+    description: PUT operations must have a request body
+    severity: error
+    given: $.paths[*].put
+    then:
+      field: requestBody
+      function: truthy
+
+  supertokens-tenant-id-described:
+    description: tenantId parameters should have a description
+    severity: warn
+    given: $.paths[*][*].parameters[?(@.name == 'tenantId')]
+    then:
+      field: description
+      function: truthy
+
+  supertokens-user-schema-required:
+    description: User schema must include id and timeJoined fields
+    severity: error
+    given: $.components.schemas.User.properties
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          required:
+            - id
+            - timeJoined
+
+  supertokens-error-response-defined:
+    description: 401 error responses should be defined for session endpoints
+    severity: warn
+    given: $.paths['/recipe/session'].get.responses
+    then:
+      field: '401'
+      function: truthy

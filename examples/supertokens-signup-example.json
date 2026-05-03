@@ -1,0 +1,38 @@
+{
+  "description": "Create a new user with email and password using SuperTokens email/password recipe",
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:3567/recipe/signup",
+    "headers": {
+      "Content-Type": "application/json",
+      "api-key": "your-supertokens-api-key",
+      "cdi-version": "5.1"
+    },
+    "body": {
+      "email": "user@example.com",
+      "password": "securepassword123"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": "OK",
+      "user": {
+        "id": "user-456",
+        "emails": ["user@example.com"],
+        "phoneNumbers": [],
+        "timeJoined": 1746520800000,
+        "tenantIds": ["public"],
+        "loginMethods": [
+          {
+            "recipeId": "emailpassword",
+            "recipeUserId": "user-456",
+            "email": "user@example.com",
+            "verified": false,
+            "timeJoined": 1746520800000
+          }
+        ]
+      }
+    }
+  }
+}
