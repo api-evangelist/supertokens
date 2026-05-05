@@ -1,0 +1,126 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: SuperTokens
+providerId: supertokens
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Identity
+  - Authentication
+description: SuperTokens free open-source self-hosted; managed cloud per-MAU.
+sources:
+  - https://supertokens.com/pricing
+plans:
+  - id: supertokens-free-self-hosted
+    name: Free (Self-hosted)
+    type: freemium
+    description: Open source, free at any scale.
+    entries:
+      - label: Per deployment
+        name: deploy
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Email/password
+      - name: Social Login + SSO
+      - name: Passwordless magic links
+      - name: SMS/Email OTP
+      - name: User Management Dashboard
+      - name: Session Management
+      - name: RBAC
+  - id: supertokens-cloud
+    name: Cloud (Managed)
+    type: usage-based
+    description: $0.02 per MAU; free under 5K MAUs.
+    entries:
+      - label: MAUs free
+        name: mau_free
+        type: quota
+        metric: MAU
+        limit: 5000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Per MAU above free
+        name: mau
+        type: metered
+        metric: MAU
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.02'
+        userMultiplied: false
+      - label: MFA add-on per MAU
+        name: mfa
+        type: metered
+        metric: MAU
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.01'
+        userMultiplied: false
+      - label: Account Linking add-on per MAU
+        name: account_link
+        type: metered
+        metric: MAU
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.005'
+        userMultiplied: false
+    elements:
+      - name: All core features included
+      - name: High reliability infra
+      - name: Managed scalability/updates
+      - name: SOC2 compliance
+  - id: supertokens-self-hosted-paid
+    name: Self-hosted Paid Add-ons
+    type: paid
+    description: Pay per add-on (same rates as Cloud); $100/mo minimum.
+    entries:
+      - label: MFA per MAU ($100/mo min)
+        name: mfa
+        type: metered
+        metric: MAU
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.01'
+        userMultiplied: false
+      - label: Account Linking per MAU ($100/mo min)
+        name: account_link
+        type: metered
+        metric: MAU
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.005'
+        userMultiplied: false
+      - label: Dashboard users (3 free)
+        name: dashboard_users
+        type: subscription
+        metric: user
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '20.00'
+        userMultiplied: true
+    elements:
+      - name: Pay only for add-ons
+      - name: Self-hosted core remains free
