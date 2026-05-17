@@ -41,7 +41,7 @@ apis:
         url: https://supertokens.com/docs
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/openapi/supertokens-core-driver-interface-openapi.yml
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/supertokens/supertokens-core
       - type: API Specification
         url: https://github.com/supertokens/core-driver-interface
@@ -62,9 +62,9 @@ common:
     url: https://supertokens.com
   - type: Documentation
     url: https://supertokens.com/docs
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/supertokens
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/supertokens/supertokens-core
   - type: SDK Node.js
     url: https://github.com/supertokens/supertokens-node
@@ -76,7 +76,7 @@ common:
     url: https://github.com/supertokens/supertokens-web-js
   - type: SDK Flutter
     url: https://github.com/supertokens/supertokens-flutter
-  - type: Changelog
+  - type: ChangeLog
     url: https://github.com/supertokens/supertokens-core/blob/master/CHANGELOG.md
   - type: Issues
     url: https://github.com/supertokens/supertokens-core/issues
