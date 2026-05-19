@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SuperTokens Core Driver Interface — Email Verification
+  description: 'SuperTokens Core Driver Interface — Email Verification. 3 operations. Lead operation: Verify Email. Self-contained
+    Naftiko capability covering one Supertokens business surface.'
+  tags:
+  - Supertokens
+  - Email Verification
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SUPERTOKENS_API_KEY: SUPERTOKENS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: core-driver-interface-email-verification
+    baseUri: http://{host}:{port}
+    description: SuperTokens Core Driver Interface — Email Verification business capability. Self-contained, no shared references.
+    resources:
+    - name: recipe-user-email-verify
+      path: /recipe/user/email/verify
+      operations:
+      - name: verifyemail
+        method: POST
+        description: Verify Email
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: isemailverified
+        method: GET
+        description: Is Email Verified
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: query
+          type: string
+          required: true
+        - name: email
+          in: query
+          type: string
+          required: true
+    - name: recipe-user-email-verify-token
+      path: /recipe/user/email/verify/token
+      operations:
+      - name: createemailverificationtoken
+        method: POST
+        description: Create Email Verification Token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: api-key
+      value: '{{env.SUPERTOKENS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: core-driver-interface-email-verification-rest
+    port: 8080
+    description: REST adapter for SuperTokens Core Driver Interface — Email Verification. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/recipe/user/email/verify
+      name: recipe-user-email-verify
+      description: REST surface for recipe-user-email-verify.
+      operations:
+      - method: POST
+        name: verifyemail
+        description: Verify Email
+        call: core-driver-interface-email-verification.verifyemail
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: isemailverified
+        description: Is Email Verified
+        call: core-driver-interface-email-verification.isemailverified
+        with:
+          userId: rest.userId
+          email: rest.email
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/recipe/user/email/verify/token
+      name: recipe-user-email-verify-token
+      description: REST surface for recipe-user-email-verify-token.
+      operations:
+      - method: POST
+        name: createemailverificationtoken
+        description: Create Email Verification Token
+        call: core-driver-interface-email-verification.createemailverificationtoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: core-driver-interface-email-verification-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SuperTokens Core Driver Interface — Email Verification. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: verify-email
+      description: Verify Email
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: core-driver-interface-email-verification.verifyemail
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: is-email-verified
+      description: Is Email Verified
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: core-driver-interface-email-verification.isemailverified
+      with:
+        userId: tools.userId
+        email: tools.email
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-email-verification-token
+      description: Create Email Verification Token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: core-driver-interface-email-verification.createemailverificationtoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

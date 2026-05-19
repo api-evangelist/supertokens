@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SuperTokens Core Driver Interface — Third Party
+  description: 'SuperTokens Core Driver Interface — Third Party. 1 operations. Lead operation: Third Party Sign In / Up. Self-contained
+    Naftiko capability covering one Supertokens business surface.'
+  tags:
+  - Supertokens
+  - Third Party
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SUPERTOKENS_API_KEY: SUPERTOKENS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: core-driver-interface-third-party
+    baseUri: http://{host}:{port}
+    description: SuperTokens Core Driver Interface — Third Party business capability. Self-contained, no shared references.
+    resources:
+    - name: recipe-signinup
+      path: /recipe/signinup
+      operations:
+      - name: thirdpartysigninup
+        method: POST
+        description: Third Party Sign In / Up
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: api-key
+      value: '{{env.SUPERTOKENS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: core-driver-interface-third-party-rest
+    port: 8080
+    description: REST adapter for SuperTokens Core Driver Interface — Third Party. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/recipe/signinup
+      name: recipe-signinup
+      description: REST surface for recipe-signinup.
+      operations:
+      - method: POST
+        name: thirdpartysigninup
+        description: Third Party Sign In / Up
+        call: core-driver-interface-third-party.thirdpartysigninup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: core-driver-interface-third-party-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SuperTokens Core Driver Interface — Third Party. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: third-party-sign-up
+      description: Third Party Sign In / Up
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: core-driver-interface-third-party.thirdpartysigninup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

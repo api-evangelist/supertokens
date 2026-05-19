@@ -1,0 +1,223 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SuperTokens Core Driver Interface — User Roles
+  description: 'SuperTokens Core Driver Interface — User Roles. 5 operations. Lead operation: Create Or Update Role. Self-contained
+    Naftiko capability covering one Supertokens business surface.'
+  tags:
+  - Supertokens
+  - User Roles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SUPERTOKENS_API_KEY: SUPERTOKENS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: core-driver-interface-user-roles
+    baseUri: http://{host}:{port}
+    description: SuperTokens Core Driver Interface — User Roles business capability. Self-contained, no shared references.
+    resources:
+    - name: recipe-roles
+      path: /recipe/roles
+      operations:
+      - name: createorupdaterole
+        method: PUT
+        description: Create Or Update Role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: listroles
+        method: GET
+        description: List Roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: recipe-user-roles
+      path: /recipe/user/roles
+      operations:
+      - name: assignroletouser
+        method: PUT
+        description: Assign Role To User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getuserroles
+        method: GET
+        description: Get User Roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: query
+          type: string
+          required: true
+      - name: removeuserrole
+        method: DELETE
+        description: Remove User Role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: query
+          type: string
+          required: true
+        - name: role
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: api-key
+      value: '{{env.SUPERTOKENS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: core-driver-interface-user-roles-rest
+    port: 8080
+    description: REST adapter for SuperTokens Core Driver Interface — User Roles. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/recipe/roles
+      name: recipe-roles
+      description: REST surface for recipe-roles.
+      operations:
+      - method: PUT
+        name: createorupdaterole
+        description: Create Or Update Role
+        call: core-driver-interface-user-roles.createorupdaterole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listroles
+        description: List Roles
+        call: core-driver-interface-user-roles.listroles
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/recipe/user/roles
+      name: recipe-user-roles
+      description: REST surface for recipe-user-roles.
+      operations:
+      - method: PUT
+        name: assignroletouser
+        description: Assign Role To User
+        call: core-driver-interface-user-roles.assignroletouser
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getuserroles
+        description: Get User Roles
+        call: core-driver-interface-user-roles.getuserroles
+        with:
+          userId: rest.userId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: removeuserrole
+        description: Remove User Role
+        call: core-driver-interface-user-roles.removeuserrole
+        with:
+          userId: rest.userId
+          role: rest.role
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: core-driver-interface-user-roles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SuperTokens Core Driver Interface — User Roles. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: create-update-role
+      description: Create Or Update Role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: core-driver-interface-user-roles.createorupdaterole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-roles
+      description: List Roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: core-driver-interface-user-roles.listroles
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: assign-role-user
+      description: Assign Role To User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: core-driver-interface-user-roles.assignroletouser
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-roles
+      description: Get User Roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: core-driver-interface-user-roles.getuserroles
+      with:
+        userId: tools.userId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-user-role
+      description: Remove User Role
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: core-driver-interface-user-roles.removeuserrole
+      with:
+        userId: tools.userId
+        role: tools.role
+      outputParameters:
+      - type: object
+        mapping: $.
