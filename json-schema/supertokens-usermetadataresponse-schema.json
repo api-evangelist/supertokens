@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserMetadataResponse",
+  "title": "UserMetadataResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Arbitrary key-value metadata for the user"
+    }
+  }
+}

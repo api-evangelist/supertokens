@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/User",
+  "title": "User",
+  "type": "object",
+  "description": "A SuperTokens user object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique user ID"
+    },
+    "emails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "phoneNumbers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "thirdParty": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "timeJoined": {
+      "type": "integer",
+      "description": "Unix timestamp when user joined"
+    },
+    "tenantIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "loginMethods": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

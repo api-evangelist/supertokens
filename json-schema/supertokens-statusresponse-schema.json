@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StatusResponse",
+  "title": "StatusResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "example": "OK"
+    }
+  }
+}

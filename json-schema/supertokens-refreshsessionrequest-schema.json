@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RefreshSessionRequest",
+  "title": "RefreshSessionRequest",
+  "type": "object",
+  "required": [
+    "refreshToken"
+  ],
+  "properties": {
+    "refreshToken": {
+      "type": "string"
+    },
+    "antiCsrfToken": {
+      "type": "string"
+    },
+    "tenantId": {
+      "type": "string"
+    }
+  }
+}

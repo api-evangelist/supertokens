@@ -1,0 +1,579 @@
+{
+  "provider": "SuperTokens",
+  "providerId": "supertokens",
+  "kind": "json-structure",
+  "description": "Structural overview of the SuperTokens API surface; extracted from openapi/.",
+  "schemaCount": 41,
+  "operationCount": 31,
+  "schemas": [
+    {
+      "name": "StatusResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ErrorResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ApiVersionResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CreateSessionRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "userId",
+        "userDataInJWT",
+        "userDataInDatabase"
+      ]
+    },
+    {
+      "name": "CreateSessionResponse",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "Session",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "Token",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "GetSessionResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "RefreshSessionRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "refreshToken"
+      ]
+    },
+    {
+      "name": "RemoveSessionsRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "RemoveSessionsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "SessionDataResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateSessionDataRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "sessionHandle",
+        "userDataInDatabase"
+      ]
+    },
+    {
+      "name": "SignUpRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    {
+      "name": "SignUpResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "SignInRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "email",
+        "password"
+      ]
+    },
+    {
+      "name": "SignInResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "User",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "ResetPasswordTokenRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "userId",
+        "email"
+      ]
+    },
+    {
+      "name": "ResetPasswordTokenResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ResetPasswordRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "method",
+        "token",
+        "newPassword"
+      ]
+    },
+    {
+      "name": "CreatePasswordlessCodeRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CreatePasswordlessCodeResponse",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "ConsumePasswordlessCodeRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "preAuthSessionId"
+      ]
+    },
+    {
+      "name": "ConsumePasswordlessCodeResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ThirdPartySignInUpRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "thirdPartyId",
+        "thirdPartyUserId",
+        "email"
+      ]
+    },
+    {
+      "name": "ThirdPartySignInUpResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "EmailVerificationTokenRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "userId",
+        "email"
+      ]
+    },
+    {
+      "name": "EmailVerificationTokenResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "VerifyEmailRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "method",
+        "token"
+      ]
+    },
+    {
+      "name": "IsEmailVerifiedResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UserMetadataResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateUserMetadataRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "userId",
+        "metadataUpdate"
+      ]
+    },
+    {
+      "name": "TenantRequest",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "TenantResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ListTenantsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListUsersResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CreateRoleRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "role"
+      ]
+    },
+    {
+      "name": "ListRolesResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AssignRoleRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "userId",
+        "role"
+      ]
+    },
+    {
+      "name": "UserRolesResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/hello",
+      "operationId": "getHealth",
+      "summary": "Get Service Health",
+      "tags": [
+        "Health"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apiversion",
+      "operationId": "getApiVersion",
+      "summary": "Get API Version",
+      "tags": [
+        "Health"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/session",
+      "operationId": "getSession",
+      "summary": "Get Session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/session",
+      "operationId": "createSession",
+      "summary": "Create Session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/session/refresh",
+      "operationId": "refreshSession",
+      "summary": "Refresh Session",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/session/remove",
+      "operationId": "removeSessions",
+      "summary": "Remove Sessions",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/session/data",
+      "operationId": "getSessionData",
+      "summary": "Get Session Data",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/recipe/session/data",
+      "operationId": "updateSessionData",
+      "summary": "Update Session Data",
+      "tags": [
+        "Sessions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/signup",
+      "operationId": "emailPasswordSignUp",
+      "summary": "Email Password Sign Up",
+      "tags": [
+        "Email Password"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/signin",
+      "operationId": "emailPasswordSignIn",
+      "summary": "Email Password Sign In",
+      "tags": [
+        "Email Password"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/user/password/reset/token",
+      "operationId": "createResetPasswordToken",
+      "summary": "Create Reset Password Token",
+      "tags": [
+        "Email Password"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/user/password/reset",
+      "operationId": "resetPassword",
+      "summary": "Reset Password",
+      "tags": [
+        "Email Password"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/signinup/code",
+      "operationId": "createPasswordlessCode",
+      "summary": "Create Passwordless Code",
+      "tags": [
+        "Passwordless"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/signinup/code/consume",
+      "operationId": "consumePasswordlessCode",
+      "summary": "Consume Passwordless Code",
+      "tags": [
+        "Passwordless"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/signinup",
+      "operationId": "thirdPartySignInUp",
+      "summary": "Third Party Sign In / Up",
+      "tags": [
+        "Third Party"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/user/email/verify/token",
+      "operationId": "createEmailVerificationToken",
+      "summary": "Create Email Verification Token",
+      "tags": [
+        "Email Verification"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/user/email/verify",
+      "operationId": "isEmailVerified",
+      "summary": "Is Email Verified",
+      "tags": [
+        "Email Verification"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/user/email/verify",
+      "operationId": "verifyEmail",
+      "summary": "Verify Email",
+      "tags": [
+        "Email Verification"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/user/metadata",
+      "operationId": "getUserMetadata",
+      "summary": "Get User Metadata",
+      "tags": [
+        "User Metadata"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/recipe/user/metadata",
+      "operationId": "updateUserMetadata",
+      "summary": "Update User Metadata",
+      "tags": [
+        "User Metadata"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/recipe/user/metadata",
+      "operationId": "deleteUserMetadata",
+      "summary": "Delete User Metadata",
+      "tags": [
+        "User Metadata"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/multitenancy/tenant",
+      "operationId": "getTenant",
+      "summary": "Get Tenant",
+      "tags": [
+        "Multi Tenancy"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/recipe/multitenancy/tenant",
+      "operationId": "createOrUpdateTenant",
+      "summary": "Create Or Update Tenant",
+      "tags": [
+        "Multi Tenancy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/multitenancy/tenant/list",
+      "operationId": "listTenants",
+      "summary": "List Tenants",
+      "tags": [
+        "Multi Tenancy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users",
+      "operationId": "listUsers",
+      "summary": "List Users",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/user/remove",
+      "operationId": "deleteUser",
+      "summary": "Delete User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/roles",
+      "operationId": "listRoles",
+      "summary": "List Roles",
+      "tags": [
+        "User Roles"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/recipe/roles",
+      "operationId": "createOrUpdateRole",
+      "summary": "Create Or Update Role",
+      "tags": [
+        "User Roles"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/recipe/user/roles",
+      "operationId": "getUserRoles",
+      "summary": "Get User Roles",
+      "tags": [
+        "User Roles"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/recipe/user/roles",
+      "operationId": "assignRoleToUser",
+      "summary": "Assign Role To User",
+      "tags": [
+        "User Roles"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/recipe/user/roles",
+      "operationId": "removeUserRole",
+      "summary": "Remove User Role",
+      "tags": [
+        "User Roles"
+      ]
+    }
+  ]
+}

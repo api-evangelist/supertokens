@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSessionRequest",
+  "title": "CreateSessionRequest",
+  "type": "object",
+  "required": [
+    "userId",
+    "userDataInJWT",
+    "userDataInDatabase"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "Unique user identifier"
+    },
+    "userDataInJWT": {
+      "type": "object",
+      "description": "Data to embed in the JWT access token"
+    },
+    "userDataInDatabase": {
+      "type": "object",
+      "description": "Data to store in the database for this session"
+    },
+    "tenantId": {
+      "type": "string",
+      "description": "Optional tenant ID for multi-tenant apps"
+    }
+  }
+}

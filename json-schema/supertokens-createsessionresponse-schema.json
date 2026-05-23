@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSessionResponse",
+  "title": "CreateSessionResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "example": "OK"
+    },
+    "session": {
+      "$ref": "#/components/schemas/Session"
+    },
+    "accessToken": {
+      "$ref": "#/components/schemas/Token"
+    },
+    "refreshToken": {
+      "$ref": "#/components/schemas/Token"
+    },
+    "antiCsrfToken": {
+      "type": "string"
+    }
+  }
+}

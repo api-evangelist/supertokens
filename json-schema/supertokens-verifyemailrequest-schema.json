@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VerifyEmailRequest",
+  "title": "VerifyEmailRequest",
+  "type": "object",
+  "required": [
+    "method",
+    "token"
+  ],
+  "properties": {
+    "method": {
+      "type": "string",
+      "enum": [
+        "token"
+      ]
+    },
+    "token": {
+      "type": "string"
+    },
+    "tenantId": {
+      "type": "string"
+    }
+  }
+}

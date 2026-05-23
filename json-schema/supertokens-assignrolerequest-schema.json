@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AssignRoleRequest",
+  "title": "AssignRoleRequest",
+  "type": "object",
+  "required": [
+    "userId",
+    "role"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "tenantId": {
+      "type": "string"
+    }
+  }
+}

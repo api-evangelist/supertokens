@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ThirdPartySignInUpRequest",
+  "title": "ThirdPartySignInUpRequest",
+  "type": "object",
+  "required": [
+    "thirdPartyId",
+    "thirdPartyUserId",
+    "email"
+  ],
+  "properties": {
+    "thirdPartyId": {
+      "type": "string",
+      "description": "Provider ID (e.g. google, github, apple)"
+    },
+    "thirdPartyUserId": {
+      "type": "string",
+      "description": "User ID from the third-party provider"
+    },
+    "email": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "email"
+        },
+        "isVerified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "tenantId": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EmailVerificationTokenResponse",
+  "title": "EmailVerificationTokenResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "OK",
+        "EMAIL_ALREADY_VERIFIED_ERROR"
+      ]
+    },
+    "token": {
+      "type": "string"
+    }
+  }
+}

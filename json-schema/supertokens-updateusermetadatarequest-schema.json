@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateUserMetadataRequest",
+  "title": "UpdateUserMetadataRequest",
+  "type": "object",
+  "required": [
+    "userId",
+    "metadataUpdate"
+  ],
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "metadataUpdate": {
+      "type": "object",
+      "description": "Metadata fields to merge into existing metadata"
+    }
+  }
+}

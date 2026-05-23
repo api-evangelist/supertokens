@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ErrorResponse",
+  "title": "ErrorResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "UNAUTHORISED",
+        "TOKEN_THEFT_DETECTED",
+        "TRY_REFRESH_TOKEN"
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TenantRequest",
+  "title": "TenantRequest",
+  "type": "object",
+  "properties": {
+    "tenantId": {
+      "type": "string"
+    },
+    "emailPasswordEnabled": {
+      "type": "boolean"
+    },
+    "passwordlessEnabled": {
+      "type": "boolean"
+    },
+    "thirdPartyEnabled": {
+      "type": "boolean"
+    },
+    "coreConfig": {
+      "type": "object"
+    }
+  }
+}

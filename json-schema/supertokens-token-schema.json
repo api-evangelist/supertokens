@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Token",
+  "title": "Token",
+  "type": "object",
+  "description": "A token object with value and expiry",
+  "properties": {
+    "token": {
+      "type": "string"
+    },
+    "expiry": {
+      "type": "integer",
+      "description": "Token expiry timestamp in milliseconds"
+    },
+    "createdTime": {
+      "type": "integer"
+    }
+  }
+}

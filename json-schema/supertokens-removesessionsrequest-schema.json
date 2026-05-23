@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RemoveSessionsRequest",
+  "title": "RemoveSessionsRequest",
+  "type": "object",
+  "properties": {
+    "sessionHandles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of session handles to revoke"
+    },
+    "userId": {
+      "type": "string",
+      "description": "Remove all sessions for this user"
+    }
+  }
+}

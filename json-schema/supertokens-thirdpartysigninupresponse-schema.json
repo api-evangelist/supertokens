@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ThirdPartySignInUpResponse",
+  "title": "ThirdPartySignInUpResponse",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "createdNewUser": {
+      "type": "boolean"
+    },
+    "user": {
+      "$ref": "#/components/schemas/User"
+    }
+  }
+}
