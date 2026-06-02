@@ -7,7 +7,7 @@ description: SuperTokens is an open source authentication solution providing ses
   Go, Java, React, Flutter, iOS, and Android.
 url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/apis.yml
 created: '2026-03-25'
-modified: '2026-05-19'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 tags:
 - Authentication
@@ -126,6 +126,8 @@ common:
   type: MCPServer
 - type: LLMsTxt
   url: https://supertokens.com/llms.txt
+- type: Review
+  url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/review.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

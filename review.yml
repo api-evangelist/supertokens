@@ -1,0 +1,101 @@
+provider: SuperTokens
+providerId: supertokens
+topic: webhooks
+reviewedBy: API Evangelist
+reviewer:
+  name: Kin Lane
+  email: info@apievangelist.com
+  url: https://apievangelist.com
+created: '2026-05-30'
+modified: '2026-05-30'
+sources:
+  - https://supertokens.com
+  - https://supertokens.com/docs
+  - https://supertokens.com/docs/quickstart/introduction
+  - https://supertokens.com/docs/references
+  - https://supertokens.com/docs/post-authentication/dashboard/introduction
+  - https://supertokens.com/blog/webhook-vs-api
+  - https://supertokens.com/pricing
+  - https://github.com/supertokens/core-driver-interface
+  - https://raw.githubusercontent.com/supertokens/core-driver-interface/master/api_spec.yaml
+  - https://supertokens.com/docs/thirdparty/advanced-customizations/frontend-hooks/handle-event
+  - https://supertokens.com/docs/emailpassword/common-customizations/handling-signin-success
+  - https://supertokens.com/docs/emailpassword/common-customizations/handling-signup-success
+finding:
+  hasDocumentedWebhooks: false
+  surface: none
+  summary: |
+    SuperTokens does not expose a documented outbound webhook surface from either its
+    open-source supertokens-core service or its Managed Cloud offering. There is no
+    webhook subscription endpoint, no event catalog, no signature/HMAC delivery
+    specification, and no dashboard UI for registering destination URLs against
+    authentication events.
+evidence:
+  - source: https://raw.githubusercontent.com/supertokens/core-driver-interface/master/api_spec.yaml
+    note: |
+      Full text search of the Core Driver Interface OpenAPI spec (api_spec.yaml,
+      274KB) for the strings "webhook", "callback", and "notif" returns zero matches
+      tied to outbound delivery. The only hits are: (a) user-metadata example
+      payloads that happen to contain a "notifications" key, and (b) OAuth/third-party
+      redirect "callback" URLs used by social-login flows — none of which constitute a
+      webhook surface for the API consumer.
+  - source: https://supertokens.com/docs/references
+    note: |
+      The References section of the SuperTokens docs lists Frontend SDK Reference,
+      Backend SDK Reference, FDI Reference, and CDI Reference. None of these include
+      a "Webhooks" or "Events" section. The only "hooks" documented are SDK-level
+      frontend event handlers and pre/post API overrides that execute in-process
+      inside the customer's backend SDK — not HTTP webhooks dispatched by
+      SuperTokens to a customer URL.
+  - source: https://supertokens.com/docs/emailpassword/common-customizations/handling-signup-success
+    note: |
+      Post-signup and post-signin "callbacks" are documented as in-process function
+      overrides inside the backend SDK (Node, Python, Go). The customer writes code
+      that runs in their own server process when the SDK handles the auth event.
+      There is no outbound HTTP POST from SuperTokens-managed infrastructure.
+  - source: https://supertokens.com/blog/webhook-vs-api
+    note: |
+      The only "webhook" content on supertokens.com is a generic explainer blog post
+      contrasting webhooks vs APIs. It does not announce or describe a SuperTokens
+      webhook product. SuperTokens is positioned as a tool to secure third-party
+      webhook traffic, not as a webhook emitter.
+  - source: https://supertokens.com/docs/post-authentication/dashboard/introduction
+    note: |
+      The SuperTokens user management dashboard documents tenant/user management
+      actions. No webhook configuration UI, no event subscription form, no
+      destination URL registration is documented.
+  - source: https://supertokens.instatus.com/subscribe/webhook
+    note: |
+      A webhook subscription does exist for SuperTokens platform status updates,
+      hosted on Instatus. This is an operational status-page webhook for incident
+      notifications — it is not an authentication event webhook surface and is not
+      a SuperTokens product feature.
+alternatives:
+  - mechanism: Backend SDK function overrides
+    description: |
+      Customers wire side effects (send email, push to analytics, POST to internal
+      service) inside override implementations of recipe functions such as signInPOST,
+      signUpPOST, createNewSession, and consumeCodePOST. Execution happens inside the
+      customer's own backend process, not from SuperTokens infrastructure.
+    docs: https://supertokens.com/docs/emailpassword/common-customizations/handling-signup-success
+  - mechanism: Frontend event handlers (onHandleEvent)
+    description: |
+      Frontend recipes expose onHandleEvent hooks that fire in the browser on events
+      like SUCCESS, SIGN_OUT, and SESSION_ALREADY_EXISTS. These are client-side
+      callbacks, not server-to-server webhooks.
+    docs: https://supertokens.com/docs/thirdparty/advanced-customizations/frontend-hooks/handle-event
+gaps:
+  - No outbound webhook surface from the managed cloud for user.created,
+    user.signed_in, session.created, session.revoked, password.reset.requested,
+    email.verified, mfa.enrolled, or account.linked events.
+  - No documented signing-secret / HMAC delivery contract.
+  - No event subscription management API.
+  - No replay / retry / dead-letter semantics documented.
+  - Customers integrating SuperTokens into an event-driven architecture must add a
+    custom emitter inside their backend SDK overrides; SuperTokens itself stays out
+    of the egress path.
+recommendation: |
+  Do not model a SuperTokens webhook OpenAPI / AsyncAPI in this repository at this
+  time. There is no public contract to model without fabrication. Revisit if
+  SuperTokens announces a managed-cloud webhook product or adds a webhooks section
+  to the Core Driver Interface specification.
