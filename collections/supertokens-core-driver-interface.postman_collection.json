@@ -1,0 +1,4163 @@
+{
+  "item": [
+    {
+      "id": "f8fd08b2-48fb-4b94-9b41-a6c571b3c4e9",
+      "name": "Health",
+      "description": {
+        "content": "Service health and version checks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f41cf24a-f862-4bfb-b616-2af088697662",
+          "name": "Get Service Health",
+          "request": {
+            "name": "Get Service Health",
+            "description": {
+              "content": "Returns a health check response confirming the SuperTokens Core service is running.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hello"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "513e2721-150a-4b52-9edc-0ad7372621ec",
+              "name": "Service is healthy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hello"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d256ec6-524f-4577-9b35-77a316dc4631",
+          "name": "Get API Version",
+          "request": {
+            "name": "Get API Version",
+            "description": {
+              "content": "Returns the supported CDI API versions for this Core instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apiversion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95146c44-bcc3-4ee1-a639-e8a207aa7db4",
+              "name": "API version information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apiversion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"versions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "72d57b76-e767-47c1-8e77-9159bfe9d978",
+      "name": "Sessions",
+      "description": {
+        "content": "Session creation, verification, refresh, and revocation",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f72ef03-8059-4aed-9e1e-87a3ee02ff2b",
+          "name": "Create Session",
+          "request": {
+            "name": "Create Session",
+            "description": {
+              "content": "Creates a new authentication session for a user, generating access and refresh tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"userDataInJWT\": \"<object>\",\n  \"userDataInDatabase\": \"<object>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08923561-8152-4bff-a070-e1958a5a2735",
+              "name": "Session created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"userDataInJWT\": \"<object>\",\n  \"userDataInDatabase\": \"<object>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"session\": {\n    \"handle\": \"string\",\n    \"userId\": \"string\",\n    \"userDataInJWT\": {},\n    \"tenantId\": \"string\",\n    \"recipeUserId\": \"string\"\n  },\n  \"accessToken\": {\n    \"token\": \"string\",\n    \"expiry\": 6049,\n    \"createdTime\": 4677\n  },\n  \"refreshToken\": {\n    \"token\": \"string\",\n    \"expiry\": 8650,\n    \"createdTime\": 7289\n  },\n  \"antiCsrfToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92a3595c-86ea-4747-a559-f8e768a5a46c",
+          "name": "Get Session",
+          "request": {
+            "name": "Get Session",
+            "description": {
+              "content": "Verifies and retrieves a session using the access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "accessToken",
+                  "value": "<string>",
+                  "description": "(Required) The access token to verify"
+                },
+                {
+                  "disabled": false,
+                  "key": "doAntiCsrfCheck",
+                  "value": "<boolean>",
+                  "description": "Whether to perform anti-CSRF check"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69dbd615-8dad-4840-9d1a-a23073d6ed51",
+              "name": "Session is valid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accessToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doAntiCsrfCheck",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"session\": {\n    \"handle\": \"string\",\n    \"userId\": \"string\",\n    \"userDataInJWT\": {},\n    \"tenantId\": \"string\",\n    \"recipeUserId\": \"string\"\n  },\n  \"accessToken\": {\n    \"token\": \"string\",\n    \"expiry\": 2814,\n    \"createdTime\": 2963\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d14975d4-68c5-4c13-a8a5-dec380ac6428",
+              "name": "Access token has expired or is invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "accessToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doAntiCsrfCheck",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UNAUTHORISED\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ba240c1-4a29-434d-be5b-cea18297b97b",
+          "name": "Refresh Session",
+          "request": {
+            "name": "Refresh Session",
+            "description": {
+              "content": "Creates a new session using a refresh token, rotating both access and refresh tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "session",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"<string>\",\n  \"antiCsrfToken\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae9a8583-07b7-41bf-98f3-87d18caa8075",
+              "name": "Session refreshed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"refreshToken\": \"<string>\",\n  \"antiCsrfToken\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"session\": {\n    \"handle\": \"string\",\n    \"userId\": \"string\",\n    \"userDataInJWT\": {},\n    \"tenantId\": \"string\",\n    \"recipeUserId\": \"string\"\n  },\n  \"accessToken\": {\n    \"token\": \"string\",\n    \"expiry\": 6049,\n    \"createdTime\": 4677\n  },\n  \"refreshToken\": {\n    \"token\": \"string\",\n    \"expiry\": 8650,\n    \"createdTime\": 7289\n  },\n  \"antiCsrfToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bfa56b2-ee26-4a21-940e-e02a3f318949",
+              "name": "Refresh token is expired or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"refreshToken\": \"<string>\",\n  \"antiCsrfToken\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UNAUTHORISED\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c08c7ee8-76e8-4b6a-b675-5212ed2e289c",
+          "name": "Remove Sessions",
+          "request": {
+            "name": "Remove Sessions",
+            "description": {
+              "content": "Revokes one or more sessions by session handle or user ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "session",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sessionHandles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ee1a730-3363-4b26-8579-3a34c84cc41a",
+              "name": "Sessions removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionHandles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"userId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"sessionHandlesRevoked\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9b1e484-da94-4669-b044-1637b18a7b55",
+          "name": "Get Session Data",
+          "request": {
+            "name": "Get Session Data",
+            "description": {
+              "content": "Retrieves the custom session data stored for a session handle.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "session",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sessionHandle",
+                  "value": "<string>",
+                  "description": "(Required) The session handle to retrieve data for"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c04eb31-6fc9-4f56-9d95-92e7a513c4f7",
+              "name": "Session data retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sessionHandle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"userDataInDatabase\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b17b960-9aab-49b0-a235-b830db17aa55",
+          "name": "Update Session Data",
+          "request": {
+            "name": "Update Session Data",
+            "description": {
+              "content": "Updates the custom session data stored for a session handle.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "session",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sessionHandle\": \"<string>\",\n  \"userDataInDatabase\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15cbaf16-73a9-46fe-97ed-5909a2183006",
+              "name": "Session data updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "session",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionHandle\": \"<string>\",\n  \"userDataInDatabase\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4917281e-6d7d-4eb9-914c-830b9fdaf2c3",
+      "name": "Email Password",
+      "description": {
+        "content": "Email and password sign-up, sign-in, and password management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62032c2d-0658-40a4-adc9-bdafdd48f97b",
+          "name": "Email Password Sign Up",
+          "request": {
+            "name": "Email Password Sign Up",
+            "description": {
+              "content": "Creates a new user account with email and password credentials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "signup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<password>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6808eac8-843e-48ad-976e-4e144a799ca4",
+              "name": "User created successfully or email already exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "signup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<password>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"EMAIL_ALREADY_EXISTS_ERROR\",\n  \"user\": {\n    \"id\": \"string\",\n    \"emails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"phoneNumbers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"thirdParty\": [\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timeJoined\": 3401,\n    \"tenantIds\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fe22c6d-0bcb-4b4a-9268-ae704f18a05c",
+          "name": "Email Password Sign In",
+          "request": {
+            "name": "Email Password Sign In",
+            "description": {
+              "content": "Authenticates a user with email and password, returning user information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "signin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<password>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1a7cdb7-dbcc-4b5d-800e-7de9420c22cf",
+              "name": "Authentication successful or wrong credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "signin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<password>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"WRONG_CREDENTIALS_ERROR\",\n  \"user\": {\n    \"id\": \"string\",\n    \"emails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"phoneNumbers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"thirdParty\": [\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timeJoined\": 8493,\n    \"tenantIds\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f967565-5beb-4c0e-9f2d-c9f91666bc47",
+          "name": "Create Reset Password Token",
+          "request": {
+            "name": "Create Reset Password Token",
+            "description": {
+              "content": "Generates a password reset token for the specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "password",
+                "reset",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<email>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d73788a0-4c14-4ad2-811b-6d15f0a7223f",
+              "name": "Password reset token generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "password",
+                    "reset",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34b8b43c-154e-4290-bc64-0235803318a1",
+          "name": "Reset Password",
+          "request": {
+            "name": "Reset Password",
+            "description": {
+              "content": "Resets the user's password using a valid reset token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "password",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"<string>\",\n  \"token\": \"<string>\",\n  \"newPassword\": \"<password>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8c975d2-794e-4fe7-9a82-fa89f4476cb9",
+              "name": "Password reset successful or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "password",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"<string>\",\n  \"token\": \"<string>\",\n  \"newPassword\": \"<password>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "dcfd35d4-ec92-43d1-b14f-bcd2a0fa3555",
+      "name": "Passwordless",
+      "description": {
+        "content": "Passwordless OTP and magic link authentication",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "675e67cd-b233-4d50-8fdf-71e245239bfe",
+          "name": "Create Passwordless Code",
+          "request": {
+            "name": "Create Passwordless Code",
+            "description": {
+              "content": "Creates a one-time code (OTP) or magic link for passwordless authentication via email or phone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "signinup",
+                "code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"phoneNumber\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6c1ea47b-c197-48dd-91a0-993e181d1025",
+              "name": "Code created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "signinup",
+                    "code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"phoneNumber\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"preAuthSessionId\": \"string\",\n  \"codeId\": \"string\",\n  \"deviceId\": \"string\",\n  \"userInputCode\": \"string\",\n  \"linkCode\": \"string\",\n  \"timeCreated\": 6717,\n  \"codeLifetime\": 5040\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d708b5e-b39c-4a6a-a9f9-ae603aecda4f",
+          "name": "Consume Passwordless Code",
+          "request": {
+            "name": "Consume Passwordless Code",
+            "description": {
+              "content": "Validates and consumes a passwordless OTP or magic link code to authenticate the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "signinup",
+                "code",
+                "consume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preAuthSessionId\": \"<string>\",\n  \"userInputCode\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e26fb43-90c4-420a-b105-3506e84abd69",
+              "name": "Code consumed and user authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "signinup",
+                    "code",
+                    "consume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preAuthSessionId\": \"<string>\",\n  \"userInputCode\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"createdNewUser\": true,\n  \"user\": {\n    \"id\": \"string\",\n    \"emails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"phoneNumbers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"thirdParty\": [\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timeJoined\": 8452,\n    \"tenantIds\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ed4cf8ca-b4c4-4e20-bca3-db6b0ecfa452",
+      "name": "Third Party",
+      "description": {
+        "content": "Social/OAuth third-party provider authentication",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b000c9c-fcc8-4124-8bb0-e496dd5e3363",
+          "name": "Third Party Sign In / Up",
+          "request": {
+            "name": "Third Party Sign In / Up",
+            "description": {
+              "content": "Creates or retrieves a user account based on a third-party OAuth provider token (Google, GitHub, Apple, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "signinup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"thirdPartyId\": \"<string>\",\n  \"thirdPartyUserId\": \"<string>\",\n  \"email\": {\n    \"id\": \"<email>\",\n    \"isVerified\": \"<boolean>\"\n  },\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b31e1ac3-45b0-4ea5-a7f8-ff93197e85c7",
+              "name": "User signed in or created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "signinup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thirdPartyId\": \"<string>\",\n  \"thirdPartyUserId\": \"<string>\",\n  \"email\": {\n    \"id\": \"<email>\",\n    \"isVerified\": \"<boolean>\"\n  },\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"createdNewUser\": false,\n  \"user\": {\n    \"id\": \"string\",\n    \"emails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"phoneNumbers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"thirdParty\": [\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timeJoined\": 6639,\n    \"tenantIds\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "40ca46d2-0c79-461d-9fe3-4dc1363f74ec",
+      "name": "Email Verification",
+      "description": {
+        "content": "Email verification token creation and validation",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8746cee8-3d8b-443a-934e-df2a8fd08441",
+          "name": "Create Email Verification Token",
+          "request": {
+            "name": "Create Email Verification Token",
+            "description": {
+              "content": "Generates an email verification token for the specified user and email.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "email",
+                "verify",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "22f638fe-f30f-47fb-bc57-2c50a99d0990",
+              "name": "Token created or email already verified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "email",
+                    "verify",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"email\": \"<email>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"EMAIL_ALREADY_VERIFIED_ERROR\",\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "749b1064-1e39-4343-b5ec-92ce65a75453",
+          "name": "Verify Email",
+          "request": {
+            "name": "Verify Email",
+            "description": {
+              "content": "Verifies a user's email address using the provided verification token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "email",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"<string>\",\n  \"token\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2eb9119f-bf9f-406e-99bc-891b55292ce0",
+              "name": "Email verified or invalid token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "email",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"<string>\",\n  \"token\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fab8dfb8-48ef-42d0-a11b-a2954927beb5",
+          "name": "Is Email Verified",
+          "request": {
+            "name": "Is Email Verified",
+            "description": {
+              "content": "Checks whether a user's email has been verified.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "email",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1b8d310-0b83-4885-96a1-f0b6c3f8c42e",
+              "name": "Email verification status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "email",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"isVerified\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "051e235f-5fd2-47f5-bffe-76d0a4a87bcd",
+      "name": "User Metadata",
+      "description": {
+        "content": "User metadata storage and retrieval",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a7ad0f6-0578-4ffa-8668-7639bdeff1ab",
+          "name": "Get User Metadata",
+          "request": {
+            "name": "Get User Metadata",
+            "description": {
+              "content": "Retrieves custom metadata stored for a user by userId.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) User ID to fetch metadata for"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38dd09e5-85c1-4c41-87ea-f902a6b9f152",
+              "name": "User metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5874cb96-a140-4959-9cce-19a9fb30b602",
+          "name": "Update User Metadata",
+          "request": {
+            "name": "Update User Metadata",
+            "description": {
+              "content": "Updates or merges custom metadata for a user. Fields are shallow-merged with existing metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"metadataUpdate\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d72741d7-02b4-45af-b24c-9220aa490bce",
+              "name": "Metadata updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"metadataUpdate\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"metadata\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ca329cd-7f9d-49aa-a569-af71d20a8944",
+          "name": "Delete User Metadata",
+          "request": {
+            "name": "Delete User Metadata",
+            "description": {
+              "content": "Deletes all metadata stored for a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "242fa35b-e490-4a18-96c1-e62d4086234f",
+              "name": "Metadata deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7f9dec1e-af10-4dc0-93ff-7ccc4f8725d2",
+      "name": "Multi Tenancy",
+      "description": {
+        "content": "Tenant and app management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "582b01ec-c7b2-4a6c-a305-f52a3580577b",
+          "name": "Create Or Update Tenant",
+          "request": {
+            "name": "Create Or Update Tenant",
+            "description": {
+              "content": "Creates a new tenant or updates an existing tenant configuration in a multi-tenant setup.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "multitenancy",
+                "tenant"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tenantId\": \"<string>\",\n  \"emailPasswordEnabled\": \"<boolean>\",\n  \"passwordlessEnabled\": \"<boolean>\",\n  \"thirdPartyEnabled\": \"<boolean>\",\n  \"coreConfig\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a014d48-e219-4594-947e-60b08089fdd0",
+              "name": "Tenant created or updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "multitenancy",
+                    "tenant"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tenantId\": \"<string>\",\n  \"emailPasswordEnabled\": \"<boolean>\",\n  \"passwordlessEnabled\": \"<boolean>\",\n  \"thirdPartyEnabled\": \"<boolean>\",\n  \"coreConfig\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"createdNew\": false,\n  \"tenant\": {\n    \"tenantId\": \"string\",\n    \"emailPasswordEnabled\": true,\n    \"passwordlessEnabled\": true,\n    \"thirdPartyEnabled\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48ab2170-1ea7-42e7-b6ea-47631ec872da",
+          "name": "Get Tenant",
+          "request": {
+            "name": "Get Tenant",
+            "description": {
+              "content": "Retrieves the configuration for a specific tenant.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "multitenancy",
+                "tenant"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tenantId",
+                  "value": "<string>",
+                  "description": "(Required) The tenant ID to retrieve"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdc8087e-18fe-4eeb-bdf2-329a93f08291",
+              "name": "Tenant configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "multitenancy",
+                    "tenant"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tenantId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"createdNew\": false,\n  \"tenant\": {\n    \"tenantId\": \"string\",\n    \"emailPasswordEnabled\": true,\n    \"passwordlessEnabled\": true,\n    \"thirdPartyEnabled\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c429258b-4cba-4ab0-ad05-5664a5a7667d",
+          "name": "List Tenants",
+          "request": {
+            "name": "List Tenants",
+            "description": {
+              "content": "Returns a list of all tenants configured in this SuperTokens app.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "multitenancy",
+                "tenant",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "146f939d-8486-484d-aef0-9c62c69270f0",
+              "name": "List of tenants",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "multitenancy",
+                    "tenant",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"tenants\": [\n    {\n      \"tenantId\": \"string\"\n    },\n    {\n      \"tenantId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8f3a6e83-54d4-4fed-a88a-1b3ac43645de",
+      "name": "User Roles",
+      "description": {
+        "content": "User role assignment and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1cebecb3-01c4-4036-b9a2-e756206c2472",
+          "name": "Create Or Update Role",
+          "request": {
+            "name": "Create Or Update Role",
+            "description": {
+              "content": "Creates a new role or updates permissions for an existing role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"<string>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d03809b0-ac15-4328-93e0-aef8c2c3c04f",
+              "name": "Role created or updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"role\": \"<string>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d03d007-88ef-48b1-89a5-5a9c4660a627",
+          "name": "List Roles",
+          "request": {
+            "name": "List Roles",
+            "description": {
+              "content": "Returns all roles configured in the application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4530d9c-529c-427c-ac68-0415c35891fa",
+              "name": "List of roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b347481c-db7a-4aae-bfab-2f1cf550a4da",
+          "name": "Assign Role To User",
+          "request": {
+            "name": "Assign Role To User",
+            "description": {
+              "content": "Assigns a role to a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"role\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ccfa0ba-679b-426a-8b67-5df22ca3413a",
+              "name": "Role assigned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"role\": \"<string>\",\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26b575c3-982f-4621-ba66-8ab2cee6044c",
+          "name": "Get User Roles",
+          "request": {
+            "name": "Get User Roles",
+            "description": {
+              "content": "Returns all roles assigned to a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96a3e77c-e0b7-4eb8-90d9-6ac72709c079",
+              "name": "User roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fe9298a-c77c-47e3-aa86-6b621beda54d",
+          "name": "Remove User Role",
+          "request": {
+            "name": "Remove User Role",
+            "description": {
+              "content": "Removes a role assignment from a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "user",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aead5f3b-2760-47b2-9dae-772d6ff64501",
+              "name": "Role removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "user",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b0357f80-e270-4f63-837d-495a61501977",
+      "name": "Users",
+      "description": {
+        "content": "User management and listing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df0593c6-a368-43fd-a9e3-7b16e5626d4b",
+          "name": "List Users",
+          "request": {
+            "name": "List Users",
+            "description": {
+              "content": "Returns a paginated list of users with optional filtering by tenant and recipe type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of users to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "paginationToken",
+                  "value": "<string>",
+                  "description": "Pagination token from previous response"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRecipeIds",
+                  "value": "<string>",
+                  "description": "Comma-separated list of recipe IDs to filter by"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1eacfd2d-e2d1-45b7-865d-aeb35c67f1ad",
+              "name": "Paginated user list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "paginationToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeRecipeIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"users\": [\n    {\n      \"id\": \"string\",\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phoneNumbers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"thirdParty\": [\n        {\n          \"id\": \"string\",\n          \"userId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"userId\": \"string\"\n        }\n      ],\n      \"timeJoined\": 5044,\n      \"tenantIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phoneNumbers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"thirdParty\": [\n        {\n          \"id\": \"string\",\n          \"userId\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"userId\": \"string\"\n        }\n      ],\n      \"timeJoined\": 3775,\n      \"tenantIds\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"nextPaginationToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3c6d412-ebfc-4e8c-b882-b73aac73d0a6",
+          "name": "Delete User",
+          "request": {
+            "name": "Delete User",
+            "description": {
+              "content": "Permanently deletes a user and all their session, metadata, and authentication data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) User ID to delete"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0aba9d5c-eed9-4a95-a6a2-440745feb755",
+              "name": "User deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the SuperTokens Core instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "Port number of the SuperTokens Core instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "3567",
+      "key": "port"
+    },
+    {
+      "type": "string",
+      "value": "http://{{host}}:{{port}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bd4a7f6a-2f92-48af-a14d-2ed6a2340977",
+    "name": "SuperTokens Core Driver Interface",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.\n\nContact Support:\n Name: SuperTokens\n Email: team@supertokens.com",
+      "type": "text/plain"
+    }
+  }
+}
