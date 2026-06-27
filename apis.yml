@@ -110,7 +110,7 @@ common:
   - name: MCP Server
     url: https://github.com/supertokens/mcp-plugin
     type: MCPServer
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://supertokens.com/llms.txt
   - type: Review
     url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/review.yml
