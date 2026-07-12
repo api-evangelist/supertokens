@@ -117,3 +117,9 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+common:
+  - type: Authentication
+    url: authentication/supertokens-authentication.yml
+  - url: https://supertokens.com/blog
+    type: Blog
