@@ -119,6 +119,8 @@ maintainers:
     email: kin@apievangelist.com
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/supertokens-agentic-access.yml
   - type: Authentication
     url: authentication/supertokens-authentication.yml
   - url: https://supertokens.com/blog
