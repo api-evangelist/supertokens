@@ -1,0 +1,179 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface Email Password User Roles API
+  description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+- url: http://{host}:{port}
+  description: SuperTokens Core service
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SuperTokens Core instance
+    port:
+      default: '3567'
+      description: Port number of the SuperTokens Core instance
+security:
+- ApiKeyAuth: []
+tags:
+- name: User Roles
+  description: User role assignment and management
+paths:
+  /recipe/roles:
+    put:
+      operationId: createOrUpdateRole
+      summary: Create Or Update Role
+      description: Creates a new role or updates permissions for an existing role.
+      tags:
+      - User Roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRoleRequest'
+      responses:
+        '200':
+          description: Role created or updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    get:
+      operationId: listRoles
+      summary: List Roles
+      description: Returns all roles configured in the application.
+      tags:
+      - User Roles
+      responses:
+        '200':
+          description: List of roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRolesResponse'
+  /recipe/user/roles:
+    put:
+      operationId: assignRoleToUser
+      summary: Assign Role To User
+      description: Assigns a role to a specific user.
+      tags:
+      - User Roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignRoleRequest'
+      responses:
+        '200':
+          description: Role assigned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    get:
+      operationId: getUserRoles
+      summary: Get User Roles
+      description: Returns all roles assigned to a specific user.
+      tags:
+      - User Roles
+      parameters:
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User roles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRolesResponse'
+    delete:
+      operationId: removeUserRole
+      summary: Remove User Role
+      description: Removes a role assignment from a user.
+      tags:
+      - User Roles
+      parameters:
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: role
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Role removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+components:
+  schemas:
+    AssignRoleRequest:
+      type: object
+      required:
+      - userId
+      - role
+      properties:
+        userId:
+          type: string
+        role:
+          type: string
+        tenantId:
+          type: string
+    ListRolesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    CreateRoleRequest:
+      type: object
+      required:
+      - role
+      properties:
+        role:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    UserRolesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)

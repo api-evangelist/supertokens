@@ -1,0 +1,123 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface Email Password Third Party API
+  description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+- url: http://{host}:{port}
+  description: SuperTokens Core service
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SuperTokens Core instance
+    port:
+      default: '3567'
+      description: Port number of the SuperTokens Core instance
+security:
+- ApiKeyAuth: []
+tags:
+- name: Third Party
+  description: Social/OAuth third-party provider authentication
+paths:
+  /recipe/signinup:
+    post:
+      operationId: thirdPartySignInUp
+      summary: Third Party Sign In / Up
+      description: Creates or retrieves a user account based on a third-party OAuth provider token (Google, GitHub, Apple, etc.).
+      tags:
+      - Third Party
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartySignInUpRequest'
+      responses:
+        '200':
+          description: User signed in or created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThirdPartySignInUpResponse'
+components:
+  schemas:
+    ThirdPartySignInUpResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        createdNewUser:
+          type: boolean
+        user:
+          $ref: '#/components/schemas/User'
+    ThirdPartySignInUpRequest:
+      type: object
+      required:
+      - thirdPartyId
+      - thirdPartyUserId
+      - email
+      properties:
+        thirdPartyId:
+          type: string
+          description: Provider ID (e.g. google, github, apple)
+        thirdPartyUserId:
+          type: string
+          description: User ID from the third-party provider
+        email:
+          type: object
+          properties:
+            id:
+              type: string
+              format: email
+            isVerified:
+              type: boolean
+        tenantId:
+          type: string
+    User:
+      type: object
+      description: A SuperTokens user object
+      properties:
+        id:
+          type: string
+          description: Unique user ID
+        emails:
+          type: array
+          items:
+            type: string
+        phoneNumbers:
+          type: array
+          items:
+            type: string
+        thirdParty:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              userId:
+                type: string
+        timeJoined:
+          type: integer
+          description: Unix timestamp when user joined
+        tenantIds:
+          type: array
+          items:
+            type: string
+        loginMethods:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)

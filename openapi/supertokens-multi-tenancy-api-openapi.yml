@@ -1,0 +1,133 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface Email Password Multi Tenancy API
+  description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+- url: http://{host}:{port}
+  description: SuperTokens Core service
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SuperTokens Core instance
+    port:
+      default: '3567'
+      description: Port number of the SuperTokens Core instance
+security:
+- ApiKeyAuth: []
+tags:
+- name: Multi Tenancy
+  description: Tenant and app management
+paths:
+  /recipe/multitenancy/tenant:
+    post:
+      operationId: createOrUpdateTenant
+      summary: Create Or Update Tenant
+      description: Creates a new tenant or updates an existing tenant configuration in a multi-tenant setup.
+      tags:
+      - Multi Tenancy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TenantRequest'
+      responses:
+        '200':
+          description: Tenant created or updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResponse'
+    get:
+      operationId: getTenant
+      summary: Get Tenant
+      description: Retrieves the configuration for a specific tenant.
+      tags:
+      - Multi Tenancy
+      parameters:
+      - name: tenantId
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The tenant ID to retrieve
+      responses:
+        '200':
+          description: Tenant configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TenantResponse'
+  /recipe/multitenancy/tenant/list:
+    get:
+      operationId: listTenants
+      summary: List Tenants
+      description: Returns a list of all tenants configured in this SuperTokens app.
+      tags:
+      - Multi Tenancy
+      responses:
+        '200':
+          description: List of tenants
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTenantsResponse'
+components:
+  schemas:
+    TenantResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        createdNew:
+          type: boolean
+        tenant:
+          type: object
+          properties:
+            tenantId:
+              type: string
+            emailPasswordEnabled:
+              type: boolean
+            passwordlessEnabled:
+              type: boolean
+            thirdPartyEnabled:
+              type: boolean
+    ListTenantsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        tenants:
+          type: array
+          items:
+            type: object
+            properties:
+              tenantId:
+                type: string
+    TenantRequest:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        emailPasswordEnabled:
+          type: boolean
+        passwordlessEnabled:
+          type: boolean
+        thirdPartyEnabled:
+          type: boolean
+        coreConfig:
+          type: object
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)

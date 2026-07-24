@@ -1,0 +1,311 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface Email Password Sessions API
+  description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+- url: http://{host}:{port}
+  description: SuperTokens Core service
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SuperTokens Core instance
+    port:
+      default: '3567'
+      description: Port number of the SuperTokens Core instance
+security:
+- ApiKeyAuth: []
+tags:
+- name: Sessions
+  description: Session creation, verification, refresh, and revocation
+paths:
+  /recipe/session:
+    post:
+      operationId: createSession
+      summary: Create Session
+      description: Creates a new authentication session for a user, generating access and refresh tokens.
+      tags:
+      - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+      responses:
+        '200':
+          description: Session created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSessionResponse'
+    get:
+      operationId: getSession
+      summary: Get Session
+      description: Verifies and retrieves a session using the access token.
+      tags:
+      - Sessions
+      parameters:
+      - name: accessToken
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The access token to verify
+      - name: doAntiCsrfCheck
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Whether to perform anti-CSRF check
+      responses:
+        '200':
+          description: Session is valid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSessionResponse'
+        '401':
+          description: Access token has expired or is invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /recipe/session/refresh:
+    post:
+      operationId: refreshSession
+      summary: Refresh Session
+      description: Creates a new session using a refresh token, rotating both access and refresh tokens.
+      tags:
+      - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshSessionRequest'
+      responses:
+        '200':
+          description: Session refreshed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSessionResponse'
+        '401':
+          description: Refresh token is expired or invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /recipe/session/remove:
+    post:
+      operationId: removeSessions
+      summary: Remove Sessions
+      description: Revokes one or more sessions by session handle or user ID.
+      tags:
+      - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveSessionsRequest'
+      responses:
+        '200':
+          description: Sessions removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveSessionsResponse'
+  /recipe/session/data:
+    get:
+      operationId: getSessionData
+      summary: Get Session Data
+      description: Retrieves the custom session data stored for a session handle.
+      tags:
+      - Sessions
+      parameters:
+      - name: sessionHandle
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The session handle to retrieve data for
+      responses:
+        '200':
+          description: Session data retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionDataResponse'
+    put:
+      operationId: updateSessionData
+      summary: Update Session Data
+      description: Updates the custom session data stored for a session handle.
+      tags:
+      - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSessionDataRequest'
+      responses:
+        '200':
+          description: Session data updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+components:
+  schemas:
+    RemoveSessionsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        sessionHandlesRevoked:
+          type: array
+          items:
+            type: string
+    SessionDataResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        userDataInDatabase:
+          type: object
+    CreateSessionResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+        session:
+          $ref: '#/components/schemas/Session'
+        accessToken:
+          $ref: '#/components/schemas/Token'
+        refreshToken:
+          $ref: '#/components/schemas/Token'
+        antiCsrfToken:
+          type: string
+    Session:
+      type: object
+      description: A SuperTokens authentication session
+      properties:
+        handle:
+          type: string
+          description: Unique session handle
+        userId:
+          type: string
+          description: User ID this session belongs to
+        userDataInJWT:
+          type: object
+          description: Data stored in the JWT
+        tenantId:
+          type: string
+          description: Tenant ID for multi-tenant apps
+        recipeUserId:
+          type: string
+          description: Recipe-specific user ID
+    RemoveSessionsRequest:
+      type: object
+      properties:
+        sessionHandles:
+          type: array
+          items:
+            type: string
+          description: List of session handles to revoke
+        userId:
+          type: string
+          description: Remove all sessions for this user
+    GetSessionResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        session:
+          $ref: '#/components/schemas/Session'
+        accessToken:
+          $ref: '#/components/schemas/Token'
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - UNAUTHORISED
+          - TOKEN_THEFT_DETECTED
+          - TRY_REFRESH_TOKEN
+        message:
+          type: string
+    Token:
+      type: object
+      description: A token object with value and expiry
+      properties:
+        token:
+          type: string
+        expiry:
+          type: integer
+          description: Token expiry timestamp in milliseconds
+        createdTime:
+          type: integer
+    UpdateSessionDataRequest:
+      type: object
+      required:
+      - sessionHandle
+      - userDataInDatabase
+      properties:
+        sessionHandle:
+          type: string
+        userDataInDatabase:
+          type: object
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    CreateSessionRequest:
+      type: object
+      required:
+      - userId
+      - userDataInJWT
+      - userDataInDatabase
+      properties:
+        userId:
+          type: string
+          description: Unique user identifier
+        userDataInJWT:
+          type: object
+          description: Data to embed in the JWT access token
+        userDataInDatabase:
+          type: object
+          description: Data to store in the database for this session
+        tenantId:
+          type: string
+          description: Optional tenant ID for multi-tenant apps
+    RefreshSessionRequest:
+      type: object
+      required:
+      - refreshToken
+      properties:
+        refreshToken:
+          type: string
+        antiCsrfToken:
+          type: string
+        tenantId:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)

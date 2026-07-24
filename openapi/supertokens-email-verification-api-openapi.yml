@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface Email Password Email Verification API
+  description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+- url: http://{host}:{port}
+  description: SuperTokens Core service
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SuperTokens Core instance
+    port:
+      default: '3567'
+      description: Port number of the SuperTokens Core instance
+security:
+- ApiKeyAuth: []
+tags:
+- name: Email Verification
+  description: Email verification token creation and validation
+paths:
+  /recipe/user/email/verify/token:
+    post:
+      operationId: createEmailVerificationToken
+      summary: Create Email Verification Token
+      description: Generates an email verification token for the specified user and email.
+      tags:
+      - Email Verification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailVerificationTokenRequest'
+      responses:
+        '200':
+          description: Token created or email already verified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailVerificationTokenResponse'
+  /recipe/user/email/verify:
+    post:
+      operationId: verifyEmail
+      summary: Verify Email
+      description: Verifies a user's email address using the provided verification token.
+      tags:
+      - Email Verification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyEmailRequest'
+      responses:
+        '200':
+          description: Email verified or invalid token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+    get:
+      operationId: isEmailVerified
+      summary: Is Email Verified
+      description: Checks whether a user's email has been verified.
+      tags:
+      - Email Verification
+      parameters:
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Email verification status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsEmailVerifiedResponse'
+components:
+  schemas:
+    IsEmailVerifiedResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        isVerified:
+          type: boolean
+    VerifyEmailRequest:
+      type: object
+      required:
+      - method
+      - token
+      properties:
+        method:
+          type: string
+          enum:
+          - token
+        token:
+          type: string
+        tenantId:
+          type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    EmailVerificationTokenRequest:
+      type: object
+      required:
+      - userId
+      - email
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+          format: email
+        tenantId:
+          type: string
+    EmailVerificationTokenResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - OK
+          - EMAIL_ALREADY_VERIFIED_ERROR
+        token:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)

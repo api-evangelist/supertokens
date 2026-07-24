@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface Email Password User Metadata API
+  description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+- url: http://{host}:{port}
+  description: SuperTokens Core service
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SuperTokens Core instance
+    port:
+      default: '3567'
+      description: Port number of the SuperTokens Core instance
+security:
+- ApiKeyAuth: []
+tags:
+- name: User Metadata
+  description: User metadata storage and retrieval
+paths:
+  /recipe/user/metadata:
+    get:
+      operationId: getUserMetadata
+      summary: Get User Metadata
+      description: Retrieves custom metadata stored for a user by userId.
+      tags:
+      - User Metadata
+      parameters:
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: string
+        description: User ID to fetch metadata for
+      responses:
+        '200':
+          description: User metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMetadataResponse'
+    put:
+      operationId: updateUserMetadata
+      summary: Update User Metadata
+      description: Updates or merges custom metadata for a user. Fields are shallow-merged with existing metadata.
+      tags:
+      - User Metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserMetadataRequest'
+      responses:
+        '200':
+          description: Metadata updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMetadataResponse'
+    delete:
+      operationId: deleteUserMetadata
+      summary: Delete User Metadata
+      description: Deletes all metadata stored for a user.
+      tags:
+      - User Metadata
+      parameters:
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Metadata deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+components:
+  schemas:
+    UpdateUserMetadataRequest:
+      type: object
+      required:
+      - userId
+      - metadataUpdate
+      properties:
+        userId:
+          type: string
+        metadataUpdate:
+          type: object
+          description: Metadata fields to merge into existing metadata
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    UserMetadataResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        metadata:
+          type: object
+          description: Arbitrary key-value metadata for the user
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)

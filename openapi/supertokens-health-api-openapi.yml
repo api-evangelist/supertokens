@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: SuperTokens Core Driver Interface Email Password Health API
+  description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
+  version: '5.1'
+  contact:
+    name: SuperTokens
+    url: https://supertokens.com
+    email: team@supertokens.com
+  license:
+    name: Apache-2.0
+    url: https://github.com/supertokens/supertokens-core/blob/master/LICENSE.md
+servers:
+- url: http://{host}:{port}
+  description: SuperTokens Core service
+  variables:
+    host:
+      default: localhost
+      description: Hostname of the SuperTokens Core instance
+    port:
+      default: '3567'
+      description: Port number of the SuperTokens Core instance
+security:
+- ApiKeyAuth: []
+tags:
+- name: Health
+  description: Service health and version checks
+paths:
+  /hello:
+    get:
+      operationId: getHealth
+      summary: Get Service Health
+      description: Returns a health check response confirming the SuperTokens Core service is running.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: OK
+  /apiversion:
+    get:
+      operationId: getApiVersion
+      summary: Get API Version
+      description: Returns the supported CDI API versions for this Core instance.
+      tags:
+      - Health
+      responses:
+        '200':
+          description: API version information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiVersionResponse'
+components:
+  schemas:
+    ApiVersionResponse:
+      type: object
+      properties:
+        versions:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          example: OK
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: api-key
+      description: SuperTokens Core API key (configured in config.yaml or via environment variable)
