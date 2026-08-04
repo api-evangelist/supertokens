@@ -1,0 +1,32 @@
+{
+  "provider": "supertokens",
+  "sources": [
+    "supertokens-email-password-api-openapi.yml",
+    "supertokens-email-verification-api-openapi.yml",
+    "supertokens-health-api-openapi.yml",
+    "supertokens-multi-tenancy-api-openapi.yml",
+    "supertokens-passwordless-api-openapi.yml",
+    "supertokens-sessions-api-openapi.yml",
+    "supertokens-third-party-api-openapi.yml",
+    "supertokens-user-metadata-api-openapi.yml",
+    "supertokens-user-roles-api-openapi.yml",
+    "supertokens-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "supertokens-email-password-api-openapi.yml",
+    "supertokens-email-verification-api-openapi.yml",
+    "supertokens-health-api-openapi.yml",
+    "supertokens-multi-tenancy-api-openapi.yml",
+    "supertokens-passwordless-api-openapi.yml",
+    "supertokens-sessions-api-openapi.yml",
+    "supertokens-third-party-api-openapi.yml",
+    "supertokens-user-metadata-api-openapi.yml",
+    "supertokens-user-roles-api-openapi.yml",
+    "supertokens-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
