@@ -1,0 +1,194 @@
+{
+  "item": [
+    {
+      "id": "24466413-518c-4e9c-bade-0c9039ace10c",
+      "name": "Third Party",
+      "description": {
+        "content": "Social/OAuth third-party provider authentication",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cfb76152-21ad-4d33-b032-15f00e617717",
+          "name": "Third Party Sign In / Up",
+          "request": {
+            "name": "Third Party Sign In / Up",
+            "description": {
+              "content": "Creates or retrieves a user account based on a third-party OAuth provider token (Google, GitHub, Apple, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recipe",
+                "signinup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "Port number of the SuperTokens Core instance",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"thirdPartyId\": \"<string>\",\n  \"thirdPartyUserId\": \"<string>\",\n  \"email\": {\n    \"id\": \"<email>\",\n    \"isVerified\": \"<boolean>\"\n  },\n  \"tenantId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ad72d12-6380-4e65-8853-09de5991fdfa",
+              "name": "User signed in or created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recipe",
+                    "signinup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "Port number of the SuperTokens Core instance",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"thirdPartyId\": \"<string>\",\n  \"thirdPartyUserId\": \"<string>\",\n  \"email\": {\n    \"id\": \"<email>\",\n    \"isVerified\": \"<boolean>\"\n  },\n  \"tenantId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"createdNewUser\": false,\n  \"user\": {\n    \"id\": \"string\",\n    \"emails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"phoneNumbers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"thirdParty\": [\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timeJoined\": 4297,\n    \"tenantIds\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of the SuperTokens Core instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "Port number of the SuperTokens Core instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "3567",
+      "key": "port"
+    },
+    {
+      "type": "string",
+      "value": "http://{{host}}:{{port}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2d7361d3-937f-4d5e-85be-558f94850a5e",
+    "name": "SuperTokens Core Driver Interface Email Password Third Party API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.\n\nContact Support:\n Name: SuperTokens\n Email: team@supertokens.com",
+      "type": "text/plain"
+    }
+  }
+}

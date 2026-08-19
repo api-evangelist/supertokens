@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SuperTokens Core Driver Interface Email Password User Metadata API",
+    "version": "5.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get User Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/recipe/user/metadata",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "User ID to fetch metadata for"
+              }
+            ]
+          },
+          "docs": "Retrieves custom metadata stored for a user by userId."
+        },
+        {
+          "info": {
+            "name": "Update User Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/recipe/user/metadata",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates or merges custom metadata for a user. Fields are shallow-merged with existing metadata."
+        },
+        {
+          "info": {
+            "name": "Delete User Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{host}:{port}/recipe/user/metadata",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes all metadata stored for a user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

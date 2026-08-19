@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SuperTokens Core Driver Interface Email Password Multi Tenancy API",
+    "version": "5.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Multi Tenancy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/recipe/multitenancy/tenant",
+            "params": [
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query",
+                "description": "The tenant ID to retrieve"
+              }
+            ]
+          },
+          "docs": "Retrieves the configuration for a specific tenant."
+        },
+        {
+          "info": {
+            "name": "Create Or Update Tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/recipe/multitenancy/tenant",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new tenant or updates an existing tenant configuration in a multi-tenant setup."
+        },
+        {
+          "info": {
+            "name": "List Tenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/recipe/multitenancy/tenant/list"
+          },
+          "docs": "Returns a list of all tenants configured in this SuperTokens app."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SuperTokens Core Driver Interface Email Password Sessions API",
+    "version": "5.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/recipe/session",
+            "params": [
+              {
+                "name": "accessToken",
+                "value": "",
+                "type": "query",
+                "description": "The access token to verify"
+              },
+              {
+                "name": "doAntiCsrfCheck",
+                "value": "",
+                "type": "query",
+                "description": "Whether to perform anti-CSRF check"
+              }
+            ]
+          },
+          "docs": "Verifies and retrieves a session using the access token."
+        },
+        {
+          "info": {
+            "name": "Create Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/recipe/session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new authentication session for a user, generating access and refresh tokens."
+        },
+        {
+          "info": {
+            "name": "Refresh Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/recipe/session/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new session using a refresh token, rotating both access and refresh tokens."
+        },
+        {
+          "info": {
+            "name": "Remove Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/recipe/session/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Revokes one or more sessions by session handle or user ID."
+        },
+        {
+          "info": {
+            "name": "Get Session Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/recipe/session/data",
+            "params": [
+              {
+                "name": "sessionHandle",
+                "value": "",
+                "type": "query",
+                "description": "The session handle to retrieve data for"
+              }
+            ]
+          },
+          "docs": "Retrieves the custom session data stored for a session handle."
+        },
+        {
+          "info": {
+            "name": "Update Session Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/recipe/session/data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the custom session data stored for a session handle."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,317 @@
+
+# SuperTokens 
+
+## Docs
+
+### Quickstart
+- [Introduction](https://supertokens.com/docs/quickstart/introduction.md): Set up user authentication with SuperTokens using Email/Password login and customizable UI components.
+- [Frontend Setup](https://supertokens.com/docs/quickstart/frontend-setup.md): Configure your frontend application for SuperTokens authentication, including SDK installation and session management.
+- [Backend Setup](https://supertokens.com/docs/quickstart/backend-setup.md): Set up SuperTokens authentication for your backend using Node.js, Python, or Go SDKs.
+- [Next Steps](https://supertokens.com/docs/quickstart/next-steps.md): Configure SuperTokens for production-ready authentication, explore additional methods, and customize flows.
+- [Example Applications](https://supertokens.com/docs/quickstart/example-applications.md): Generate and run a demo app to explore SuperTokens authentication setup.
+- [Build with AI Tools](https://supertokens.com/docs/quickstart/build-with-ai-tools.md): Learn how to leverage the plain text documentation format inside AI tools.
+- [Vercel](https://supertokens.com/docs/quickstart/integrations/vercel.md): Learn how to integrate SuperTokens with Vercel 
+- [AWS Lambda - Quickstart Guide](https://supertokens.com/docs/quickstart/integrations/aws-lambda/quickstart-guide.md): Learn how to integrate SuperTokens with AWS Lambda
+- [AWS Lambda - Session Verification](https://supertokens.com/docs/quickstart/integrations/aws-lambda/session-verification.md): Verify user sessions when integrating SuperTokens with AWS Lambda.
+- [AWS Lambda - AppSync integration](https://supertokens.com/docs/quickstart/integrations/aws-lambda/appsync-integration.md): Integrate Supertokens with AppSync using Lambda Authorizer for secure API Gateway configuration.
+- [GraphQL](https://supertokens.com/docs/quickstart/integrations/graphql.md): Set up backend session verification in GraphQL resolvers using SuperTokens for user authentication.
+- [Hasura](https://supertokens.com/docs/quickstart/integrations/hasura.md): Learn how to use SuperTokens with Hasura
+- [NestJS](https://supertokens.com/docs/quickstart/integrations/nestjs.md): Integrate SuperTokens with NestJS backend, covering modules, services, middleware, and session management.
+- [Netlify](https://supertokens.com/docs/quickstart/integrations/netlify.md): Learn to set up SuperTokens authentication with Netlify using serverless functions.
+- [Supabase](https://supertokens.com/docs/quickstart/integrations/supabase.md): Integrate SuperTokens with Supabase in a Next.js app for secure user data management.
+- [Multiple frontend domains with a common backend](https://supertokens.com/docs/authentication/unified-login/quickstart-guides/multiple-frontends-with-a-single-backend.md): Implement OAuth2 authentication for multiple frontend domains using a shared backend service.
+- [Multiple frontend domains with separate backends](https://supertokens.com/docs/authentication/unified-login/quickstart-guides/multiple-frontends-with-separate-backends.md): Set up multiple frontend domains with separate backends using OAuth2 authentication.
+- [Reuse website login for desktop and mobile apps](https://supertokens.com/docs/authentication/unified-login/quickstart-guides/reuse-website-login.md): Implement web authentication for desktop and mobile apps using OAuth2
+
+### Email/Password Login
+- [Customize the Sign In form](https://supertokens.com/docs/authentication/email-password/customize-the-sign-in-form.md): Customize form fields in the sign in component by modifying labels, placeholders, default values, and error messages.
+- [Customize the Sign Up Form](https://supertokens.com/docs/authentication/email-password/customize-the-sign-up-form.md): Customize the sign up form by adding new fields or modifying existing ones.
+- [Hooks and overrides](https://supertokens.com/docs/authentication/email-password/hooks-and-overrides.md): Add custom logic in the authentication flow by overriding the SuperTokens APIs.
+- [Password hashing](https://supertokens.com/docs/authentication/email-password/password-hashing.md): Learn about the password hashing algorithms used by SuperTokens and how to customize and calibrate them.
+- [Implement username login](https://supertokens.com/docs/authentication/email-password/implement-username-login.md): Enable username login by replacing email with username in the SuperTokens authentication flow.
+- [Password reset](https://supertokens.com/docs/authentication/email-password/password-reset.md): Learn how the password reset functionality works
+- [Disable Sign Up](https://supertokens.com/docs/authentication/email-password/disable-signup.md): Learn how to disable the sign up flow
+- [Password managers](https://supertokens.com/docs/authentication/email-password/password-managers.md): Ensure password managers detect authentication fields by disabling shadow DOM in your application.
+
+### Passwordless Login
+- [Initial Setup](https://supertokens.com/docs/authentication/passwordless/initial-setup.md): Add Passwordless authentication to your project using Prebuilt or Custom UI components.
+- [Customize the Magic Link](https://supertokens.com/docs/authentication/passwordless/customize-the-magic-link.md): See how to change the magic link or how to generate it manually
+- [Customize the One-Time Password (OTP)](https://supertokens.com/docs/authentication/passwordless/customize-the-otp.md): Configure OTP by changing the format or by modifying the token duration
+- [Hooks and overrides](https://supertokens.com/docs/authentication/passwordless/hooks-and-overrides.md): Add custom logic in the authentication flow by overriding the SuperTokens APIs.
+- [Configure email and SMS behavior](https://supertokens.com/docs/authentication/passwordless/configure-email-and-sms-behavior.md): Customize how the email and SMS are sent in your frontend application.
+- [Implement invite link based sign up](https://supertokens.com/docs/authentication/passwordless/invite-link-flow.md): Discover how to implement an invite based sign up flow with the passwordless recipe.
+- [Implement allow list based sign up](https://supertokens.com/docs/authentication/passwordless/allow-list-flow.md): Discover how to implement an allow list based sign up flow with the passwordless recipe.
+
+### Social Login
+- [Initial Setup](https://supertokens.com/docs/authentication/social/initial-setup.md): Authenticate using SuperTokens with ThirdParty Providers, creating a custom or prebuilt login flow.
+- [Built-in providers](https://supertokens.com/docs/authentication/social/built-in-providers.md): Configure single or multi-tenant login/SSO with built-in provider settings.
+- [Custom providers](https://supertokens.com/docs/authentication/social/custom-providers.md): Add custom authentication providers to SuperTokens 
+- [Hooks and overrides](https://supertokens.com/docs/authentication/social/hooks-and-overrides.md): Customize the authentication flow to trigger events like analytics or database updates.
+- [Add multiple clients for the same provider](https://supertokens.com/docs/authentication/social/add-multiple-clients-for-the-same-provider.md): Configure multiple client IDs for social login providers in web and mobile applications.
+- [Implement a custom invite flow](https://supertokens.com/docs/authentication/social/custom-invite-flow.md): Implement an allow list for third-party sign-ups using the SuperTokens user metadata recipe.
+
+### Enterprise Login
+- [Important concepts](https://supertokens.com/docs/authentication/enterprise/important-concepts.md): Understand multi-tenant architecture with SuperTokens
+- [Initial setup](https://supertokens.com/docs/authentication/enterprise/initial-setup.md): Create your first tenant and configure authentication on it.
+- [Implement common domain login](https://supertokens.com/docs/authentication/enterprise/common-domain-login.md): Authenticate users across different tenants through a common domain.
+- [Implement subdomain login](https://supertokens.com/docs/authentication/enterprise/subdomain-login.md): Authenticate users across different tenants through different subdomains.
+- [Tenant discovery](https://supertokens.com/docs/authentication/enterprise/tenant-discovery.md): Automatically discover and route users to appropriate tenants based on their email domains
+- [Tenant actions](https://supertokens.com/docs/authentication/enterprise/manage-tenants.md): Discover different APIs that can help you work with tenants.
+- [Tenant management](https://supertokens.com/docs/authentication/enterprise/tenant-management-plugin.md): Use the tenant management plugin for an out-of-the-box admin experience
+- [Manage apps](https://supertokens.com/docs/authentication/enterprise/manage-apps.md): Create and manage multiple apps within a SuperTokens integration.
+- [SAML](https://supertokens.com/docs/authentication/enterprise/saml.md): Add SAML authentication to your application
+- [Legacy SAML](https://supertokens.com/docs/authentication/enterprise/legacy-saml.md): Learn how SAML facilitates secure information exchange between authentication servers and client applications.
+
+### Unified Login
+- [OAuth2 Basics](https://supertokens.com/docs/authentication/unified-login/oauth2-basics.md): Authenticate multiple applications using SuperTokens and OAuth2 for unified login across platforms.
+- [Multiple frontend domains with a common backend](https://supertokens.com/docs/authentication/unified-login/quickstart-guides/multiple-frontends-with-a-single-backend.md): Implement OAuth2 authentication for multiple frontend domains using a shared backend service.
+- [Multiple frontend domains with separate backends](https://supertokens.com/docs/authentication/unified-login/quickstart-guides/multiple-frontends-with-separate-backends.md): Set up multiple frontend domains with separate backends using OAuth2 authentication.
+- [Reuse website login for desktop and mobile apps](https://supertokens.com/docs/authentication/unified-login/quickstart-guides/reuse-website-login.md): Implement web authentication for desktop and mobile apps using OAuth2
+- [Work with scopes](https://supertokens.com/docs/authentication/unified-login/work-with-scopes.md): Manage OAuth2 scopes, request specific scopes, and override granted scopes during authentication.
+- [Verify tokens](https://supertokens.com/docs/authentication/unified-login/verify-tokens.md): Verify OAuth2 tokens using JWT libraries or the introspection endpoint 
+- [Add custom claims in tokens](https://supertokens.com/docs/authentication/unified-login/add-custom-claims-in-tokens.md): Add custom claims to OAuth2 access and ID tokens using overrides
+
+### Machine to Machine Authentication
+- [Client Credentials Flow](https://supertokens.com/docs/authentication/m2m/client-credentials.md): Configure OAuth2 client credentials flow for microservices authentication and access token verification.
+- [Legacy Flow](https://supertokens.com/docs/authentication/m2m/legacy-flow.md): Guide for implementing JWT-based authentication between microservices using SuperTokens Core.
+
+### Passkeys Authentication
+- [Important concepts](https://supertokens.com/docs/authentication/passkeys/important-concepts.md)
+- [Initial Setup](https://supertokens.com/docs/authentication/passkeys/initial-setup.md)
+- [Customization](https://supertokens.com/docs/authentication/passkeys/customization.md)
+
+### Multi-factor Authentication
+- [Important concepts](https://supertokens.com/docs/additional-verification/mfa/important-concepts.md): Understand SuperTokens auth factor IDs, completion status, and multi-factor authentication setup.
+- [Initial setup](https://supertokens.com/docs/additional-verification/mfa/initial-setup.md): Configure your application for multi-factor authentication with account linking and tenant-specific configurations.
+- [Require TOTP for all users](https://supertokens.com/docs/additional-verification/mfa/totp/totp-for-all-users.md): Implement a TOTP-based MFA policy for all users to enhance application security.
+- [Require TOTP for specific users](https://supertokens.com/docs/additional-verification/mfa/totp/totp-for-opt-in-users.md): Implement a TOTP-based MFA policy for specific users based on customizable criteria.
+- [OTP required for all users](https://supertokens.com/docs/additional-verification/mfa/email-sms-otp/otp-for-all-users.md): Implement a multi-factor authentication policy requiring all users to complete an OTP challenge.
+- [OTP for specific users](https://supertokens.com/docs/additional-verification/mfa/email-sms-otp/otp-for-opt-in-users.md): Implement MFA policy for specific users using OTP via email or SMS based on defined criteria.
+- [Passkeys/WebAuthn](https://supertokens.com/docs/additional-verification/mfa/webauthn-secondary-factor-setup.md): Implement WebAuthn/Passkey multi-factor authentication that requires all users to complete passkey authentication before accessing the application.
+- [Implement recovery codes](https://supertokens.com/docs/additional-verification/mfa/backup-codes.md): Implement backup codes for account recovery by customizing SuperTokens SDKs for MFA users.
+- [Implement step-up authentication](https://supertokens.com/docs/additional-verification/mfa/step-up-auth.md): Implement step-up authentication using SuperTokens MFA recipe.
+- [Embed the pre-built UI component](https://supertokens.com/docs/additional-verification/mfa/embed-the-prebuilt-ui.md): Embed and customize a prebuilt MFA UI component.
+- [Protect frontend and backend routes](https://supertokens.com/docs/additional-verification/mfa/protect-routes.md): Protect frontend and backend routes using SuperTokens Session Tokens and Multi-Factor Authentication (MFA).
+- [Hooks and overrides](https://supertokens.com/docs/additional-verification/mfa/hooks-and-overrides.md): Configure your application for multi-factor authentication with account linking and tenant-specific configurations.
+- [Migration from legacy MFA to new MFA method](https://supertokens.com/docs/additional-verification/mfa/migration/legacy-to-new.md): Migrate from legacy to new MFA method, integrating backend and frontend changes for enhanced security.
+- [Migration from an older SuperTokens SDK to a newer one](https://supertokens.com/docs/additional-verification/mfa/migration/old-sdk-to-new.md): Upgrade your SuperTokens SDK to enable MFA, ensuring compatibility and smooth transition for existing users.
+- [Legacy vs New method](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/legacy-vs-new.md): Compare legacy and new MFA methods, highlighting limitations and scenarios for using the legacy approach.
+- [How it works](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/how-it-works.md): Implement multi-factor authentication using customizable auth recipes, including session management and second factor validation.
+- [Setting up the first factor](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/backend-setup/first-factor.md): Set up the first authentication factor using SuperTokens with various frameworks.
+- [Setting up the second factor](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/backend-setup/second-factor.md): Configure SMS OTP as a second authentication factor using the Passwordless recipe.
+- [Protecting API routes](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/backend-setup/protecting-api.md): Protect API routes by enforcing 2FA using session claim validators in various programming languages.
+- [Using a custom UI](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/frontend-custom.md): Implement custom UI for multi-factor authentication using SuperTokens recipes and session management.
+- [1. Recipe init](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/prebuilt-ui/init.md): Initialize authentication with ThirdParty, EmailPassword, Passwordless, and MultiFactorAuth using SuperTokens.
+- [2. Showing the first and second factor UI](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/prebuilt-ui/showing-login-ui.md): Implement a custom second factor UI for legacy multi-factor authentication.
+- [3. Protecting routes](https://supertokens.com/docs/additional-verification/mfa/legacy-mfa/prebuilt-ui/protecting-routes.md): Wrap application routes with `SessionAuth` to ensure multi-factor authentication completion.
+
+### Session Verification
+- [Protect backend routes](https://supertokens.com/docs/additional-verification/session-verification/protect-api-routes.md): Explore three session verification methods with SuperTokens: middleware, function, and manual JWT verification.
+- [Protect frontend routes](https://supertokens.com/docs/additional-verification/session-verification/protect-frontend-routes.md): Protect frontend routes by requiring user sessions and verifying session claims for access control.
+- [Session verification during server side rendering](https://supertokens.com/docs/additional-verification/session-verification/ssr.md): Enable session verification during server-side rendering using cookie-based sessions and JWT verification.
+- [WebSocket session verification](https://supertokens.com/docs/additional-verification/session-verification/with-websocket.md): Verify WebSocket sessions by fetching and sending JWTs during socket connection initialization.
+- [Claims validation](https://supertokens.com/docs/additional-verification/session-verification/claim-validation.md): Validate your resources based on claims that get attached to the session.
+
+### Email Verification
+- [Initial Setup](https://supertokens.com/docs/additional-verification/email-verification/initial-setup.md): Enable email verification to ensure user authenticity and protect application routes.
+- [Protect frontend and backend routes](https://supertokens.com/docs/additional-verification/email-verification/protecting-routes.md): Protect API and website routes by implementing email verification checks for secure access.
+- [Manual actions](https://supertokens.com/docs/additional-verification/email-verification/manual-actions.md): See how you can directly generate email verification links and set emails as verified through manual actions.
+- [Embed the UI in a page](https://supertokens.com/docs/additional-verification/email-verification/embed-in-page.md): Embed the email verification UI in a different page.
+- [Customize the pre-built UI](https://supertokens.com/docs/additional-verification/email-verification/changing-style.md): Update SuperTokens component styles using CSS for customized UI appearance.
+- [Hooks and overrides](https://supertokens.com/docs/additional-verification/email-verification/hooks-and-overrides.md): Add custom logic in the email verification flow by overriding the SuperTokens APIs.
+
+### Attack Protection Suite
+- [Introduction](https://supertokens.com/docs/additional-verification/attack-protection-suite/introduction.md): Enhance application security with automatic threat detection SuperTokens
+- [Initial setup](https://supertokens.com/docs/additional-verification/attack-protection-suite/initial-setup.md): Set up Attack Protection Suite in your **SuperTokens** integration
+
+### User Roles
+- [Initial Setup](https://supertokens.com/docs/additional-verification/user-roles/initial-setup.md): Learn how to initialize and configure user roles with SuperTokens.
+- [Role management actions](https://supertokens.com/docs/additional-verification/user-roles/role-management-actions.md): Discover how to perform common actions that can be use to manage roles and permissions.
+- [Protect frontend and backend routes](https://supertokens.com/docs/additional-verification/user-roles/protecting-routes.md): Protect frontend and backend routes using SuperTokens session access tokens and role-based validation.
+
+### Account Linking
+- [Important concepts](https://supertokens.com/docs/post-authentication/account-linking/important-concepts.md): Link multiple authentication methods to a single account, ensuring security and user management.
+- [Automatic account linking](https://supertokens.com/docs/post-authentication/account-linking/automatic-account-linking.md): Enable automatic account linking for multiple login methods with SuperTokens, ensuring secure account management.
+- [Manual account linking](https://supertokens.com/docs/post-authentication/account-linking/manual-account-linking.md): Manual account linking enables control over linking accounts with different identifiers or post-login.
+- [Link social accounts](https://supertokens.com/docs/post-authentication/account-linking/link-social-accounts.md): Link social accounts accounts using the account linking feature.
+- [Add passwords to an existing account](https://supertokens.com/docs/post-authentication/account-linking/add-passwords-to-an-existing-account.md): Add a new password to an existing account using the account linking feature.
+
+### Session Management
+- [Access Session Data](https://supertokens.com/docs/post-authentication/session-management/access-session-data.md): Learn how to access session data including JWT tokens, tenant IDs, and user sessions across different programming languages and frameworks.
+- [Session Invalidation](https://supertokens.com/docs/post-authentication/session-management/session-invalidation.md): Learn how to handle session expiry, implement sign out, and revoke sessions across different programming languages and frameworks.
+- [Share sessions across sub domains](https://supertokens.com/docs/post-authentication/session-management/share-session-across-sub-domains.md): Configure SuperTokens to share sessions across multiple subdomains.
+- [Switch between cookie and header-based sessions](https://supertokens.com/docs/post-authentication/session-management/switch-between-cookies-and-header-authentication.md): Switch between cookie and header-based sessions for secure token management in SuperTokens.
+- [Implement anonymous sessions](https://supertokens.com/docs/post-authentication/session-management/advanced-workflows/anonymous-session.md): Track user actions with anonymous sessions, create and verify JWTs, and transfer data post-login.
+- [Implement user impersonation](https://supertokens.com/docs/post-authentication/session-management/advanced-workflows/user-impersonation.md): Enable user impersonation for testing and support by creating an admin-protected API endpoint.
+- [Customize error handling](https://supertokens.com/docs/post-authentication/session-management/advanced-workflows/customize-error-handling.md): Customize errors thrown by the Session recipe in your SuperTokens integration.
+- [Work with multiple API endpoints](https://supertokens.com/docs/post-authentication/session-management/advanced-workflows/multiple-api-endpoints.md): Configure sessions for multiple API endpoints using cookie and header-based authentication.
+- [Disable frontend network interceptors](https://supertokens.com/docs/post-authentication/session-management/advanced-workflows/disable-frontend-interceptors.md): Disable frontend network interceptors to manage session tokens and request headers manually in projects.
+- [Usage inside an iframe](https://supertokens.com/docs/post-authentication/session-management/advanced-workflows/in-iframe.md): Embed your website in an iframe with secure session management and custom storage handlers.
+- [Blacklist access tokens](https://supertokens.com/docs/post-authentication/session-management/advanced-workflows/access-token-blacklisting.md): Enable immediate session revocation by implementing access token blacklisting with database checks.
+- [Security](https://supertokens.com/docs/post-authentication/session-management/security.md): Learn how to protect your website from CSRF attacks using the `sameSite` cookie attribute.
+
+### User Management
+- [Common actions](https://supertokens.com/docs/post-authentication/user-management/common-actions.md): Discover how to manage users using SuperTokens.
+- [Allow users to update their data](https://supertokens.com/docs/post-authentication/user-management/allow-users-to-update-their-data.md): Enable users to change their email or password.
+- [User metadata](https://supertokens.com/docs/post-authentication/user-management/user-metadata.md): Store and manage user metadata using the backend SDK's UserMetadata recipe.
+- [Profile Management](https://supertokens.com/docs/post-authentication/user-management/user-profile.md): Add comprehensive user profile management with customizable form fields and account information display using the profile details plugin
+- [Account deduplication](https://supertokens.com/docs/post-authentication/user-management/account-deduplication.md): Learn how to prevent duplicate user accounts through account deduplication techniques.
+- [User banning](https://supertokens.com/docs/post-authentication/user-management/user-banning.md): Implement a user banning feature using plugins
+- [Progressive profiling](https://supertokens.com/docs/post-authentication/user-management/progressive-profiling.md): Gradually collect user information through customizable multi-step forms using the progressive profiling plugin
+
+### Dashboard
+- [Initial setup](https://supertokens.com/docs/post-authentication/dashboard/initial-setup.md): Set up and manage your user management dashboard with SuperTokens integration and configuration instructions.
+- [User management](https://supertokens.com/docs/post-authentication/dashboard/user-management.md): View and manage user details, edit information, and perform actions in the user dashboard.
+- [Tenant Management](https://supertokens.com/docs/post-authentication/dashboard/tenant-management.md): Manage tenants, login methods, and multi-factor authentication using the tenant management dashboard.
+
+### Migration
+- [Overview](https://supertokens.com/docs/migration/overview.md): Get a high-level overview of the migration process.
+- [Account Migration](https://supertokens.com/docs/migration/account-migration.md): Migrate your users from a legacy authentication provider to SuperTokens.
+- [Session Migration](https://supertokens.com/docs/migration/session-migration.md): Migrate user sessions from your previous authentication provider to SuperTokens using backend and frontend changes.
+- [About](https://supertokens.com/docs/migration/legacy/about.md)
+- [User Creation](https://supertokens.com/docs/migration/legacy/account-creation/user-creation.md)
+- [UserId Mapping](https://supertokens.com/docs/migration/legacy/account-creation/user-id-mapping.md)
+- [Mark email as verified](https://supertokens.com/docs/migration/legacy/account-creation/email-verification.md)
+- [User Creation without password hashes](https://supertokens.com/docs/migration/legacy/account-creation/ep-migration-without-password-hash.md)
+- [Step 2. User Data Migration](https://supertokens.com/docs/migration/legacy/data-migration.md)
+- [Step 3. Session Migration](https://supertokens.com/docs/migration/legacy/session-migration.md)
+- [Migration Steps](https://supertokens.com/docs/migration/rownd/migration-steps.md): Understand the Rownd to SuperTokens migration process.
+- [SDK Integration Guide](https://supertokens.com/docs/migration/rownd/sdk-integration-guide.md): Configure the SuperTokens Rownd backend plugin and frontend SDKs.
+
+### Deploy and configure SuperTokens Core
+- [undefined](https://supertokens.com/docs/deployment/migrate-from-mysql.md)
+- [Self-host SuperTokens](https://supertokens.com/docs/deployment/self-host-supertokens.md): Run SuperTokens on your infrastructure, control authentication data, and scale as needed.
+- [Rate limit policy](https://supertokens.com/docs/deployment/rate-limits.md): Understand and implement SuperTokens rate limit policies for managed and self-hosted services.
+- [Scalability](https://supertokens.com/docs/deployment/scalability.md): Learn how SuperTokens scales to handle millions of users and requests efficiently.
+- [OpenTelemetry Integration](https://supertokens.com/docs/deployment/telemetry.md): Add OpenTelemetry logging to all SuperTokens APIs and function calls using the plugin
+- [Add API Keys](https://supertokens.com/docs/platform-configuration/supertokens-core/api-keys.md): Authenticate backend SDK requests to SuperTokens core by adding API keys to configuration.
+- [Filter requests based on IP address](https://supertokens.com/docs/platform-configuration/supertokens-core/ip-allow-deny.md): Configure SuperTokens to allow or deny requests based on specific IP addresses for enhanced security.
+- [Add SSL via NGINX](https://supertokens.com/docs/platform-configuration/supertokens-core/add-ssl-via-nginx.md): Set up SSL for secure SuperTokens Core connections using NGINX as a reverse proxy.
+- [Add a base path](https://supertokens.com/docs/platform-configuration/supertokens-core/base-path.md): Configure a base path for self-hosted core APIs by updating core config and backend SDK.
+- [CLI](https://supertokens.com/docs/platform-configuration/supertokens-core/cli.md): Learn to use SuperTokens CLI for starting, listing, stopping, and uninstalling instances.
+- [Email delivery](https://supertokens.com/docs/platform-configuration/email-delivery.md): Customize email delivery methods.
+- [SMS delivery](https://supertokens.com/docs/platform-configuration/sms-delivery.md): Customize SMS delivery process.
+
+### References
+- [Overview](https://supertokens.com/docs/references/index.md): Explore SuperTokens concepts, APIs, and advanced customization options for authentication integration.
+- [How SuperTokens works](https://supertokens.com/docs/references/how-supertokens-works.md): Integrate SuperTokens for secure authentication using frontend and backend SDKs with customizable recipes.
+- [undefined](https://supertokens.com/docs/references/plugins/captcha-nodejs.md)
+- [undefined](https://supertokens.com/docs/references/plugins/captcha-react.md)
+- [Introduction](https://supertokens.com/docs/references/plugins/introduction.md): Extend SuperTokens functionality with official plugins for enhanced authentication features.
+- [undefined](https://supertokens.com/docs/references/plugins/opentelemetry-nodejs.md)
+- [undefined](https://supertokens.com/docs/references/plugins/profile-base-react.md)
+- [undefined](https://supertokens.com/docs/references/plugins/profile-details-nodejs.md)
+- [undefined](https://supertokens.com/docs/references/plugins/profile-details-react.md)
+- [undefined](https://supertokens.com/docs/references/plugins/profile-details-shared.md)
+- [undefined](https://supertokens.com/docs/references/plugins/progressive-profiling-nodejs.md)
+- [undefined](https://supertokens.com/docs/references/plugins/progressive-profiling-react.md)
+- [undefined](https://supertokens.com/docs/references/plugins/progressive-profiling-shared.md)
+- [undefined](https://supertokens.com/docs/references/plugins/tenant-discovery-nodejs.md)
+- [undefined](https://supertokens.com/docs/references/plugins/tenant-discovery-react.md)
+- [undefined](https://supertokens.com/docs/references/plugins/tenants-nodejs.md)
+- [undefined](https://supertokens.com/docs/references/plugins/tenants-react.md)
+- [undefined](https://supertokens.com/docs/references/plugins/user-banning-nodejs.md)
+- [undefined](https://supertokens.com/docs/references/plugins/user-banning-react.md)
+- [Reference](https://supertokens.com/docs/references/frontend-sdks/reference.md): Override frontend authentication functions using SuperTokens for custom session and user sign-up logic.
+- [Function Overrides](https://supertokens.com/docs/references/frontend-sdks/function-overrides.md): Override frontend authentication functions to implement custom use cases.
+- [Hooks](https://supertokens.com/docs/references/frontend-sdks/hooks.md): Handle user actions for logging, analytics, or side effects using the Handle Event Hook.
+- [UI showcase](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/ui-showcase.md): Discover the UI exposed by the pre-built UI for each authentication flow and recipe.
+- [Change colours](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/changing-colours.md): Customize your authentication UI theme by defining CSS variables for color palettes.
+- [Change styles via CSS](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/changing-style.md): Change UI component styles using CSS.
+- [Override React components](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/override-react-components.md): Learn to replace and enhance specific components rendered by SuperTokens.
+- [Embed the authentication form in a page](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/embed-sign-in-up-form.md): Embed authentication forms in your page using SuperTokens with redirection and popup options.
+- [Disable use of shadow DOM](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/shadow-dom.md): Disable Shadow DOM to customize CSS and improve password manager compatibility.
+- [Terms of service & Privacy policy links](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/toc-privacypolicy.md): Add Terms of Service and Privacy Policy links to your sign-up page.
+- [Language Translation for the UI](https://supertokens.com/docs/references/frontend-sdks/prebuilt-ui/translations.md): Translate your UI by providing custom translation strings or integrating with an internationalization library.
+- [supertokens-auth-react](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/package.md): References documentation for the supertokens-auth-react package
+- [supertokens-auth-react/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/types.md): References documentation for the supertokens-auth-react/types package
+- [supertokens-auth-react/recipe/emailpassword/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-emailpassword-types.md): References documentation for the supertokens-auth-react/recipe/emailpassword/types package
+- [supertokens-auth-react/recipe/emailpassword](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-emailpassword.md): References documentation for the supertokens-auth-react/recipe/emailpassword package
+- [supertokens-auth-react/recipe/emailverification/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-emailverification-types.md): References documentation for the supertokens-auth-react/recipe/emailverification/types package
+- [supertokens-auth-react/recipe/emailverification](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-emailverification.md): References documentation for the supertokens-auth-react/recipe/emailverification package
+- [supertokens-auth-react/recipe/multifactorauth/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-multifactorauth-types.md): References documentation for the supertokens-auth-react/recipe/multifactorauth/types package
+- [supertokens-auth-react/recipe/multifactorauth](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-multifactorauth.md): References documentation for the supertokens-auth-react/recipe/multifactorauth package
+- [supertokens-auth-react/recipe/multitenancy/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-multitenancy-types.md): References documentation for the supertokens-auth-react/recipe/multitenancy/types package
+- [supertokens-auth-react/recipe/multitenancy](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-multitenancy.md): References documentation for the supertokens-auth-react/recipe/multitenancy package
+- [supertokens-auth-react/recipe/oauth2provider/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-oauth2provider-types.md): References documentation for the supertokens-auth-react/recipe/oauth2provider/types package
+- [supertokens-auth-react/recipe/oauth2provider](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-oauth2provider.md): References documentation for the supertokens-auth-react/recipe/oauth2provider package
+- [supertokens-auth-react/recipe/passwordless/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-passwordless-types.md): References documentation for the supertokens-auth-react/recipe/passwordless/types package
+- [supertokens-auth-react/recipe/passwordless](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-passwordless.md): References documentation for the supertokens-auth-react/recipe/passwordless package
+- [supertokens-auth-react/recipe/session/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-session-types.md): References documentation for the supertokens-auth-react/recipe/session/types package
+- [supertokens-auth-react/recipe/session](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-session.md): References documentation for the supertokens-auth-react/recipe/session package
+- [supertokens-auth-react/recipe/thirdparty/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-thirdparty-types.md): References documentation for the supertokens-auth-react/recipe/thirdparty/types package
+- [supertokens-auth-react/recipe/thirdparty](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-thirdparty.md): References documentation for the supertokens-auth-react/recipe/thirdparty package
+- [supertokens-auth-react/recipe/totp/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-totp-types.md): References documentation for the supertokens-auth-react/recipe/totp/types package
+- [supertokens-auth-react/recipe/totp](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-totp.md): References documentation for the supertokens-auth-react/recipe/totp package
+- [supertokens-auth-react/recipe/userroles](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-userroles.md): References documentation for the supertokens-auth-react/recipe/userroles package
+- [supertokens-auth-react/recipe/webauthn/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-webauthn-types.md): References documentation for the supertokens-auth-react/recipe/webauthn/types package
+- [supertokens-auth-react/recipe/webauthn](https://supertokens.com/docs/references/frontend-sdks/supertokens-auth-react/recipe-webauthn.md): References documentation for the supertokens-auth-react/recipe/webauthn package
+- [supertokens-web-js](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/package.md): References documentation for the supertokens-web-js package
+- [supertokens-web-js/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/types.md): References documentation for the supertokens-web-js/types package
+- [supertokens-web-js/recipe/emailpassword/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-emailpassword-types.md): References documentation for the supertokens-web-js/recipe/emailpassword/types package
+- [supertokens-web-js/recipe/emailpassword](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-emailpassword.md): References documentation for the supertokens-web-js/recipe/emailpassword package
+- [supertokens-web-js/recipe/emailverification/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-emailverification-types.md): References documentation for the supertokens-web-js/recipe/emailverification/types package
+- [supertokens-web-js/recipe/emailverification](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-emailverification.md): References documentation for the supertokens-web-js/recipe/emailverification package
+- [supertokens-web-js/recipe/multifactorauth/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-multifactorauth-types.md): References documentation for the supertokens-web-js/recipe/multifactorauth/types package
+- [supertokens-web-js/recipe/multifactorauth](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-multifactorauth.md): References documentation for the supertokens-web-js/recipe/multifactorauth package
+- [supertokens-web-js/recipe/multitenancy/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-multitenancy-types.md): References documentation for the supertokens-web-js/recipe/multitenancy/types package
+- [supertokens-web-js/recipe/multitenancy](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-multitenancy.md): References documentation for the supertokens-web-js/recipe/multitenancy package
+- [supertokens-web-js/recipe/oauth2provider/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-oauth2provider-types.md): References documentation for the supertokens-web-js/recipe/oauth2provider/types package
+- [supertokens-web-js/recipe/oauth2provider](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-oauth2provider.md): References documentation for the supertokens-web-js/recipe/oauth2provider package
+- [supertokens-web-js/recipe/passwordless/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-passwordless-types.md): References documentation for the supertokens-web-js/recipe/passwordless/types package
+- [supertokens-web-js/recipe/passwordless](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-passwordless.md): References documentation for the supertokens-web-js/recipe/passwordless package
+- [supertokens-web-js/recipe/session/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-session-types.md): References documentation for the supertokens-web-js/recipe/session/types package
+- [supertokens-web-js/recipe/session](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-session.md): References documentation for the supertokens-web-js/recipe/session package
+- [supertokens-web-js/recipe/thirdparty/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-thirdparty-types.md): References documentation for the supertokens-web-js/recipe/thirdparty/types package
+- [supertokens-web-js/recipe/thirdparty](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-thirdparty.md): References documentation for the supertokens-web-js/recipe/thirdparty package
+- [supertokens-web-js/recipe/totp/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-totp-types.md): References documentation for the supertokens-web-js/recipe/totp/types package
+- [supertokens-web-js/recipe/totp](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-totp.md): References documentation for the supertokens-web-js/recipe/totp package
+- [supertokens-web-js/recipe/userroles](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-userroles.md): References documentation for the supertokens-web-js/recipe/userroles package
+- [supertokens-web-js/recipe/webauthn/types](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-webauthn-types.md): References documentation for the supertokens-web-js/recipe/webauthn/types package
+- [supertokens-web-js/recipe/webauthn](https://supertokens.com/docs/references/frontend-sdks/supertokens-web-js/recipe-webauthn.md): References documentation for the supertokens-web-js/recipe/webauthn package
+- [Reference](https://supertokens.com/docs/references/backend-sdks/reference.md): Override frontend authentication functions using SuperTokens for custom session and user sign-up logic.
+- [Function Overrides](https://supertokens.com/docs/references/backend-sdks/function-overrides.md): Override backend authentication functions to implement cover custome use cases.
+- [API Overrides](https://supertokens.com/docs/references/backend-sdks/api-overrides.md): Override APIs to control frontend-backend interactions and customize input/output specifications.
+- [User Context](https://supertokens.com/docs/references/backend-sdks/user-context.md): Pass information across API functions using user context for custom execution scenarios.
+- [User Object](https://supertokens.com/docs/references/backend-sdks/user-object.md): User Object page explains user structure, primary vs recipe user IDs, and account linking.
+- [Network interceptor](https://supertokens.com/docs/references/backend-sdks/backend-sdk-core-interceptor.md): Intercept and modify outgoing backend SDK requests to the core in NodeJS, Python, and GoLang.
+- [supertokens-node](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/package.md): References documentation for the supertokens-node package
+- [supertokens-node/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/types.md): References documentation for the supertokens-node/types package
+- [supertokens-node/recipe/emailpassword/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-emailpassword-types.md): References documentation for the supertokens-node/recipe/emailpassword/types package
+- [supertokens-node/recipe/emailpassword](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-emailpassword.md): References documentation for the supertokens-node/recipe/emailpassword package
+- [supertokens-node/recipe/passwordless/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-passwordless-types.md): References documentation for the supertokens-node/recipe/passwordless/types package
+- [supertokens-node/recipe/passwordless](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-passwordless.md): References documentation for the supertokens-node/recipe/passwordless package
+- [supertokens-node/recipe/thirdparty/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-thirdparty-types.md): References documentation for the supertokens-node/recipe/thirdparty/types package
+- [supertokens-node/recipe/thirdparty](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-thirdparty.md): References documentation for the supertokens-node/recipe/thirdparty package
+- [supertokens-node/recipe/webauthn/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-webauthn-types.md): References documentation for the supertokens-node/recipe/webauthn/types package
+- [supertokens-node/recipe/webauthn](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-webauthn.md): References documentation for the supertokens-node/recipe/webauthn package
+- [supertokens-node/recipe/emailverification/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-emailverification-types.md): References documentation for the supertokens-node/recipe/emailverification/types package
+- [supertokens-node/recipe/emailverification](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-emailverification.md): References documentation for the supertokens-node/recipe/emailverification package
+- [supertokens-node/recipe/multifactorauth/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-multifactorauth-types.md): References documentation for the supertokens-node/recipe/multifactorauth/types package
+- [supertokens-node/recipe/multifactorauth](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-multifactorauth.md): References documentation for the supertokens-node/recipe/multifactorauth package
+- [supertokens-node/recipe/accountlinking/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-accountlinking-types.md): References documentation for the supertokens-node/recipe/accountlinking/types package
+- [supertokens-node/recipe/accountlinking](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-accountlinking.md): References documentation for the supertokens-node/recipe/accountlinking package
+- [supertokens-node/recipe/jwt/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-jwt-types.md): References documentation for the supertokens-node/recipe/jwt/types package
+- [supertokens-node/recipe/jwt](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-jwt.md): References documentation for the supertokens-node/recipe/jwt package
+- [supertokens-node/recipe/multitenancy/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-multitenancy-types.md): References documentation for the supertokens-node/recipe/multitenancy/types package
+- [supertokens-node/recipe/multitenancy](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-multitenancy.md): References documentation for the supertokens-node/recipe/multitenancy package
+- [supertokens-node/recipe/dashboard/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-dashboard-types.md): References documentation for the supertokens-node/recipe/dashboard/types package
+- [supertokens-node/recipe/dashboard](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-dashboard.md): References documentation for the supertokens-node/recipe/dashboard package
+- [supertokens-node/recipe/oauth2provider/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-oauth2provider-types.md): References documentation for the supertokens-node/recipe/oauth2provider/types package
+- [supertokens-node/recipe/oauth2provider](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-oauth2provider.md): References documentation for the supertokens-node/recipe/oauth2provider package
+- [supertokens-node/recipe/openid/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-openid-types.md): References documentation for the supertokens-node/recipe/openid/types package
+- [supertokens-node/recipe/openid](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-openid.md): References documentation for the supertokens-node/recipe/openid package
+- [supertokens-node/recipe/userroles/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-userroles-types.md): References documentation for the supertokens-node/recipe/userroles/types package
+- [supertokens-node/recipe/userroles](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-userroles.md): References documentation for the supertokens-node/recipe/userroles package
+- [supertokens-node/recipe/usermetadata/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-usermetadata-types.md): References documentation for the supertokens-node/recipe/usermetadata/types package
+- [supertokens-node/recipe/usermetadata](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-usermetadata.md): References documentation for the supertokens-node/recipe/usermetadata package
+- [supertokens-node/recipe/totp/types](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-totp-types.md): References documentation for the supertokens-node/recipe/totp/types package
+- [supertokens-node/recipe/totp](https://supertokens.com/docs/references/backend-sdks/supertokens-nodejs/recipe-totp.md): References documentation for the supertokens-node/recipe/totp package
+- [Supporting other backend frameworks](https://supertokens.com/docs/references/backend-sdks/other-frameworks.md): Set up an authentication server with SuperTokens for unsupported backend frameworks.
+- [API Testing](https://supertokens.com/docs/references/testing-and-debugging/api-testing.md): Test the APIs exposed by the backend SDK.
+- [How to enable debug logs](https://supertokens.com/docs/references/testing-and-debugging/how-to-troubleshoot.md): Enable debug logs for each SuperTokens component to troubleshoot your integration.
+- [Common issues](https://supertokens.com/docs/references/testing-and-debugging/common-issues.md): Resolve common issues that might occur when you integrate SuperTokens. 
+- [Update Guide](https://supertokens.com/docs/references/updating-supertokens.md): Update SuperTokens core and SDKs to maintain compatibility and access new features.
+- [SDK Compatibility Table](https://supertokens.com/docs/references/compatibility-table.md): Find the compatible SDK/Core version for your specific tech stack.
+
+

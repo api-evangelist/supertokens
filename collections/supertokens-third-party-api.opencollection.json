@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SuperTokens Core Driver Interface Email Password Third Party API",
+    "version": "5.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api-key",
+      "value": "{{api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Third Party",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Third Party Sign In / Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/recipe/signinup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or retrieves a user account based on a third-party OAuth provider token (Google, GitHub, Apple, etc.)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
