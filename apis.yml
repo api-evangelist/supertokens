@@ -26,6 +26,17 @@ modified: '2026-05-30'
 specificationVersion: '0.23'
 tags:
   - Authentication
+  - Open-Source
+  - Session Management
+  - Social Login
+  - Passwordless
+  - Identity
+  - Authorization
+  - Multi-Tenancy
+  - Node.js
+  - Self-Hosted
+tags_raw:
+  - Authentication
   - Open Source
   - Session Management
   - Social Login
@@ -135,6 +146,8 @@ apis:
   humanURL: https://github.com/supertokens/core-driver-interface
   baseURL: https://{supertokens-core-host}:{port}
   tags:
+  - Multi-Tenancy
+  tags_raw:
   - Multi Tenancy
   properties:
   - type: OpenAPI
@@ -228,6 +241,8 @@ apis:
   humanURL: https://github.com/supertokens/core-driver-interface
   baseURL: https://{supertokens-core-host}:{port}
   tags:
+  - Third-Party
+  tags_raw:
   - Third Party
   properties:
   - type: OpenAPI
@@ -321,6 +336,8 @@ apis:
   humanURL: https://github.com/supertokens/core-driver-interface
   baseURL: https://{supertokens-core-host}:{port}
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
