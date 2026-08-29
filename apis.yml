@@ -1,4 +1,16 @@
 aid: supertokens
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -421,6 +433,14 @@ maintainers:
     email: kin@apievangelist.com
 
 common:
+  - type: Releases
+    url: https://github.com/supertokens/supertokens-core/releases
+  - type: SecurityPolicy
+    url: https://github.com/supertokens/supertokens-core/blob/master/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/supertokens/supertokens-core/blob/master/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/supertokens/supertokens-core/blob/master/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/supertokens-agentic-access.yml
   - type: Authentication
