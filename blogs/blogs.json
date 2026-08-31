@@ -3,12 +3,9 @@
   "feeds": [
     {
       "source": "https://supertokens.com/blog",
-      "feed_url": "https://supertokens.com/blog",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "TimeoutError"
     }
   ],
-  "fetched": "2026-08-22T20:20:02Z",
+  "fetched": "2026-08-30T22:33:40Z",
   "post_count": 10
 }
