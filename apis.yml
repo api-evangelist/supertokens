@@ -158,7 +158,7 @@ apis:
   humanURL: https://github.com/supertokens/core-driver-interface
   baseURL: https://{supertokens-core-host}:{port}
   tags:
-  - Multi Tenancy
+  - Multi-Tenancy
   tags_raw:
   - Multi Tenancy
   properties:
@@ -253,7 +253,7 @@ apis:
   humanURL: https://github.com/supertokens/core-driver-interface
   baseURL: https://{supertokens-core-host}:{port}
   tags:
-  - Third-Party
+  - Third Party
   tags_raw:
   - Third Party
   properties:
