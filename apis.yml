@@ -26,38 +26,38 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/supertokens.png
 name: SuperTokens
-description: >-
-  SuperTokens is an open source authentication solution providing session management, social login, email/password auth,
-  and passwordless flows for web and mobile apps. It is an open source alternative to Auth0, Firebase Auth, and AWS
-  Cognito. SuperTokens exposes a Core Driver Interface (CDI) HTTP API for backend SDKs to communicate with the
-  supertokens-core service, as well as a Frontend Driver Interface (FDI) for frontend SDK interaction. Available SDKs
-  cover Node.js, Python, Go, Java, React, Flutter, iOS, and Android.
+description: SuperTokens is an open source authentication solution providing session management, social
+  login, email/password auth, and passwordless flows for web and mobile apps. It is an open source alternative
+  to Auth0, Firebase Auth, and AWS Cognito. SuperTokens exposes a Core Driver Interface (CDI) HTTP API
+  for backend SDKs to communicate with the supertokens-core service, as well as a Frontend Driver Interface
+  (FDI) for frontend SDK interaction. Available SDKs cover Node.js, Python, Go, Java, React, Flutter,
+  iOS, and Android.
 url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/apis.yml
 created: '2026-03-25'
-modified: '2026-05-30'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
-  - Authentication
-  - Open-Source
-  - Session Management
-  - Social Login
-  - Passwordless
-  - Identity
-  - Authorization
-  - Multi-Tenancy
-  - Node.js
-  - Self-Hosted
+- Authentication
+- Open-Source
+- Session Management
+- Social Login
+- Passwordless
+- Identity
+- Authorization
+- Multi-Tenancy
+- Node.js
+- Self-Hosted
 tags_raw:
-  - Authentication
-  - Open Source
-  - Session Management
-  - Social Login
-  - Passwordless
-  - Identity
-  - Authorization
-  - Multi-Tenancy
-  - Node.js
-  - Self-Hosted
+- Authentication
+- Open Source
+- Session Management
+- Social Login
+- Passwordless
+- Identity
+- Authorization
+- Multi-Tenancy
+- Node.js
+- Self-Hosted
 apis:
 - aid: supertokens:supertokens-email-password-api
   name: SuperTokens Email Password API
@@ -76,20 +76,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-email-verification-api
   name: SuperTokens Email Verification API
   description: Email verification token creation and validation
@@ -107,20 +102,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-health-api
   name: SuperTokens Health API
   description: Service health and version checks
@@ -138,20 +128,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-multi-tenancy-api
   name: SuperTokens Multi Tenancy API
   description: Tenant and app management
@@ -171,20 +156,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-passwordless-api
   name: SuperTokens Passwordless API
   description: Passwordless OTP and magic link authentication
@@ -202,20 +182,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-sessions-api
   name: SuperTokens Sessions API
   description: Session creation, verification, refresh, and revocation
@@ -233,20 +208,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-third-party-api
   name: SuperTokens Third Party API
   description: Social/OAuth third-party provider authentication
@@ -266,20 +236,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-user-metadata-api
   name: SuperTokens User Metadata API
   description: User metadata storage and retrieval
@@ -297,20 +262,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-user-roles-api
   name: SuperTokens User Roles API
   description: User role assignment and management
@@ -328,20 +288,15 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 - aid: supertokens:supertokens-users-api
   name: SuperTokens Users API
   description: User management and listing
@@ -361,89 +316,32 @@ apis:
   - type: API Specification
     url: https://github.com/supertokens/core-driver-interface
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-schema/supertokens-session-schema.json
   - type: JSONStructure
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-structure/supertokens-session-structure.json
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/json-ld/supertokens-context.jsonld
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/rules/supertokens-cdi-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
+    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/supertokens
-  - type: Website
-    url: https://supertokens.com
-  - type: Documentation
-    url: https://supertokens.com/docs
-  - type: GitHubOrganization
-    url: https://github.com/supertokens
-  - type: GitHubRepository
-    url: https://github.com/supertokens/supertokens-core
-  - type: SDK Node.js
-    url: https://github.com/supertokens/supertokens-node
-  - type: SDK Python
-    url: https://github.com/supertokens/supertokens-python
-  - type: SDK Go
-    url: https://github.com/supertokens/supertokens-golang
-  - type: SDK React
-    url: https://github.com/supertokens/supertokens-web-js
-  - type: SDK Flutter
-    url: https://github.com/supertokens/supertokens-flutter
-  - type: ChangeLog
-    url: https://github.com/supertokens/supertokens-core/blob/master/CHANGELOG.md
-  - type: Issues
-    url: https://github.com/supertokens/supertokens-core/issues
-  - type: Features
-    data:
-      - 'Free self-hosted: open-source core at any scale'
-      - 'Cloud: $0.02/MAU (free under 5K MAUs)'
-      - 'Self-hosted paid add-ons: same rates as Cloud, $100/mo minimum'
-      - Email/password, social login, SSO, magic links, SMS/Email OTP
-      - User Management Dashboard (3 users free, $20/user/mo above)
-      - Session Management with rotating refresh tokens
-      - 'MFA add-on: $0.01/MAU'
-      - 'Account Linking add-on: $0.005/MAU'
-      - 'Frontend SDKs: React, Next.js, Vue, Angular, vanilla JS'
-      - 'Backend SDKs: Node.js, Python, Go (community for others)'
-      - RBAC built-in
-      - Pre-built UI components
-      - Self-hostable Postgres or MySQL backend
-      - Open source (Apache 2.0)
-      - SOC 2 compliant managed cloud
-      - Recipe-based architecture (one for each auth method)
-    sources:
-      - https://supertokens.com/pricing
-    updated: '2026-05-04'
-  - name: MCP Server
-    url: https://github.com/supertokens/mcp-plugin
-    type: MCPServer
-  - type: LlmsText
-    url: https://supertokens.com/llms.txt
-  - type: Review
-    url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/review.yml
+- type: Website
+  url: https://{supertokens-core-host}:{port}
+- type: Releases
+  url: https://github.com/supertokens/supertokens-core/releases
+- type: SecurityPolicy
+  url: https://github.com/supertokens/supertokens-core/blob/master/SECURITY.md
+- type: CodeOfConduct
+  url: https://github.com/supertokens/supertokens-core/blob/master/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/supertokens/supertokens-core/blob/master/CONTRIBUTING.md
+- type: AgenticAccess
+  url: agentic-access/supertokens-agentic-access.yml
+- type: Authentication
+  url: authentication/supertokens-authentication.yml
+- url: https://supertokens.com/blog
+  type: Blog
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-
-common:
-  - type: Releases
-    url: https://github.com/supertokens/supertokens-core/releases
-  - type: SecurityPolicy
-    url: https://github.com/supertokens/supertokens-core/blob/master/SECURITY.md
-  - type: CodeOfConduct
-    url: https://github.com/supertokens/supertokens-core/blob/master/CODE_OF_CONDUCT.md
-  - type: ContributionGuide
-    url: https://github.com/supertokens/supertokens-core/blob/master/CONTRIBUTING.md
-  - type: AgenticAccess
-    url: agentic-access/supertokens-agentic-access.yml
-  - type: Authentication
-    url: authentication/supertokens-authentication.yml
-  - url: https://supertokens.com/blog
-    type: Blog
+- FN: Kin Lane
+  email: kin@apievangelist.com
