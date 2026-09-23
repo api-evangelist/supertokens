@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SuperTokens Core Driver Interface Email Password User Metadata API
+  title: SuperTokens Core Driver Interface User Metadata API
   description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
   version: '5.1'
   contact:
@@ -87,6 +87,14 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
+    UserMetadataResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        metadata:
+          type: object
+          description: Arbitrary key-value metadata for the user
     UpdateUserMetadataRequest:
       type: object
       required:
@@ -104,14 +112,6 @@ components:
         status:
           type: string
           example: OK
-    UserMetadataResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        metadata:
-          type: object
-          description: Arbitrary key-value metadata for the user
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

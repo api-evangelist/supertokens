@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SuperTokens Core Driver Interface Email Password User Roles API
+  title: SuperTokens Core Driver Interface User Roles API
   description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
   version: '5.1'
   contact:
@@ -136,21 +136,6 @@ components:
           type: string
         tenantId:
           type: string
-    ListRolesResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
     CreateRoleRequest:
       type: object
       required:
@@ -171,6 +156,21 @@ components:
           type: array
           items:
             type: string
+    ListRolesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

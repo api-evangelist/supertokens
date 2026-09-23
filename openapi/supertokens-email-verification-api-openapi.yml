@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SuperTokens Core Driver Interface Email Password Email Verification API
+  title: SuperTokens Core Driver Interface Email Verification API
   description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
   version: '5.1'
   contact:
@@ -92,6 +92,19 @@ paths:
                 $ref: '#/components/schemas/IsEmailVerifiedResponse'
 components:
   schemas:
+    EmailVerificationTokenRequest:
+      type: object
+      required:
+      - userId
+      - email
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+          format: email
+        tenantId:
+          type: string
     IsEmailVerifiedResponse:
       type: object
       properties:
@@ -113,25 +126,6 @@ components:
           type: string
         tenantId:
           type: string
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
-    EmailVerificationTokenRequest:
-      type: object
-      required:
-      - userId
-      - email
-      properties:
-        userId:
-          type: string
-        email:
-          type: string
-          format: email
-        tenantId:
-          type: string
     EmailVerificationTokenResponse:
       type: object
       properties:
@@ -142,6 +136,12 @@ components:
           - EMAIL_ALREADY_VERIFIED_ERROR
         token:
           type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

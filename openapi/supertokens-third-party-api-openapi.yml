@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SuperTokens Core Driver Interface Email Password Third Party API
+  title: SuperTokens Core Driver Interface Third Party API
   description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
   version: '5.1'
   contact:
@@ -57,29 +57,6 @@ components:
           type: boolean
         user:
           $ref: '#/components/schemas/User'
-    ThirdPartySignInUpRequest:
-      type: object
-      required:
-      - thirdPartyId
-      - thirdPartyUserId
-      - email
-      properties:
-        thirdPartyId:
-          type: string
-          description: Provider ID (e.g. google, github, apple)
-        thirdPartyUserId:
-          type: string
-          description: User ID from the third-party provider
-        email:
-          type: object
-          properties:
-            id:
-              type: string
-              format: email
-            isVerified:
-              type: boolean
-        tenantId:
-          type: string
     User:
       type: object
       description: A SuperTokens user object
@@ -115,6 +92,29 @@ components:
           type: array
           items:
             type: object
+    ThirdPartySignInUpRequest:
+      type: object
+      required:
+      - thirdPartyId
+      - thirdPartyUserId
+      - email
+      properties:
+        thirdPartyId:
+          type: string
+          description: Provider ID (e.g. google, github, apple)
+        thirdPartyUserId:
+          type: string
+          description: User ID from the third-party provider
+        email:
+          type: object
+          properties:
+            id:
+              type: string
+              format: email
+            isVerified:
+              type: boolean
+        tenantId:
+          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

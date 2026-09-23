@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SuperTokens Core Driver Interface Email Password Sessions API
+  title: SuperTokens Core Driver Interface Sessions API
   description: The Core Driver Interface (CDI) is the REST API exposed by the supertokens-core HTTP service. Backend SDKs (Node.js, Python, Go) use this API to communicate with the core service for authentication operations including session management, user sign-up/sign-in, email verification, password reset, social login, passwordless authentication, multi-tenancy, and user metadata management.
   version: '5.1'
   contact:
@@ -166,15 +166,87 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
-    RemoveSessionsResponse:
+    UpdateSessionDataRequest:
+      type: object
+      required:
+      - sessionHandle
+      - userDataInDatabase
+      properties:
+        sessionHandle:
+          type: string
+        userDataInDatabase:
+          type: object
+    CreateSessionRequest:
+      type: object
+      required:
+      - userId
+      - userDataInJWT
+      - userDataInDatabase
+      properties:
+        userId:
+          type: string
+          description: Unique user identifier
+        userDataInJWT:
+          type: object
+          description: Data to embed in the JWT access token
+        userDataInDatabase:
+          type: object
+          description: Data to store in the database for this session
+        tenantId:
+          type: string
+          description: Optional tenant ID for multi-tenant apps
+    Token:
+      type: object
+      description: A token object with value and expiry
+      properties:
+        token:
+          type: string
+        expiry:
+          type: integer
+          description: Token expiry timestamp in milliseconds
+        createdTime:
+          type: integer
+    Session:
+      type: object
+      description: A SuperTokens authentication session
+      properties:
+        handle:
+          type: string
+          description: Unique session handle
+        userId:
+          type: string
+          description: User ID this session belongs to
+        userDataInJWT:
+          type: object
+          description: Data stored in the JWT
+        tenantId:
+          type: string
+          description: Tenant ID for multi-tenant apps
+        recipeUserId:
+          type: string
+          description: Recipe-specific user ID
+    RefreshSessionRequest:
+      type: object
+      required:
+      - refreshToken
+      properties:
+        refreshToken:
+          type: string
+        antiCsrfToken:
+          type: string
+        tenantId:
+          type: string
+    RemoveSessionsRequest:
       type: object
       properties:
-        status:
-          type: string
-        sessionHandlesRevoked:
+        sessionHandles:
           type: array
           items:
             type: string
+          description: List of session handles to revoke
+        userId:
+          type: string
+          description: Remove all sessions for this user
     SessionDataResponse:
       type: object
       properties:
@@ -196,36 +268,6 @@ components:
           $ref: '#/components/schemas/Token'
         antiCsrfToken:
           type: string
-    Session:
-      type: object
-      description: A SuperTokens authentication session
-      properties:
-        handle:
-          type: string
-          description: Unique session handle
-        userId:
-          type: string
-          description: User ID this session belongs to
-        userDataInJWT:
-          type: object
-          description: Data stored in the JWT
-        tenantId:
-          type: string
-          description: Tenant ID for multi-tenant apps
-        recipeUserId:
-          type: string
-          description: Recipe-specific user ID
-    RemoveSessionsRequest:
-      type: object
-      properties:
-        sessionHandles:
-          type: array
-          items:
-            type: string
-          description: List of session handles to revoke
-        userId:
-          type: string
-          description: Remove all sessions for this user
     GetSessionResponse:
       type: object
       properties:
@@ -246,63 +288,21 @@ components:
           - TRY_REFRESH_TOKEN
         message:
           type: string
-    Token:
+    RemoveSessionsResponse:
       type: object
-      description: A token object with value and expiry
       properties:
-        token:
+        status:
           type: string
-        expiry:
-          type: integer
-          description: Token expiry timestamp in milliseconds
-        createdTime:
-          type: integer
-    UpdateSessionDataRequest:
-      type: object
-      required:
-      - sessionHandle
-      - userDataInDatabase
-      properties:
-        sessionHandle:
-          type: string
-        userDataInDatabase:
-          type: object
+        sessionHandlesRevoked:
+          type: array
+          items:
+            type: string
     StatusResponse:
       type: object
       properties:
         status:
           type: string
           example: OK
-    CreateSessionRequest:
-      type: object
-      required:
-      - userId
-      - userDataInJWT
-      - userDataInDatabase
-      properties:
-        userId:
-          type: string
-          description: Unique user identifier
-        userDataInJWT:
-          type: object
-          description: Data to embed in the JWT access token
-        userDataInDatabase:
-          type: object
-          description: Data to store in the database for this session
-        tenantId:
-          type: string
-          description: Optional tenant ID for multi-tenant apps
-    RefreshSessionRequest:
-      type: object
-      required:
-      - refreshToken
-      properties:
-        refreshToken:
-          type: string
-        antiCsrfToken:
-          type: string
-        tenantId:
-          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
