@@ -92,40 +92,6 @@ paths:
                 $ref: '#/components/schemas/IsEmailVerifiedResponse'
 components:
   schemas:
-    EmailVerificationTokenRequest:
-      type: object
-      required:
-      - userId
-      - email
-      properties:
-        userId:
-          type: string
-        email:
-          type: string
-          format: email
-        tenantId:
-          type: string
-    IsEmailVerifiedResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        isVerified:
-          type: boolean
-    VerifyEmailRequest:
-      type: object
-      required:
-      - method
-      - token
-      properties:
-        method:
-          type: string
-          enum:
-          - token
-        token:
-          type: string
-        tenantId:
-          type: string
     EmailVerificationTokenResponse:
       type: object
       properties:
@@ -142,6 +108,40 @@ components:
         status:
           type: string
           example: OK
+    EmailVerificationTokenRequest:
+      type: object
+      required:
+      - userId
+      - email
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+          format: email
+        tenantId:
+          type: string
+    VerifyEmailRequest:
+      type: object
+      required:
+      - method
+      - token
+      properties:
+        method:
+          type: string
+          enum:
+          - token
+        token:
+          type: string
+        tenantId:
+          type: string
+    IsEmailVerifiedResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        isVerified:
+          type: boolean
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

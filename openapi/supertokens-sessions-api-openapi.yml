@@ -166,108 +166,6 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
-    UpdateSessionDataRequest:
-      type: object
-      required:
-      - sessionHandle
-      - userDataInDatabase
-      properties:
-        sessionHandle:
-          type: string
-        userDataInDatabase:
-          type: object
-    CreateSessionRequest:
-      type: object
-      required:
-      - userId
-      - userDataInJWT
-      - userDataInDatabase
-      properties:
-        userId:
-          type: string
-          description: Unique user identifier
-        userDataInJWT:
-          type: object
-          description: Data to embed in the JWT access token
-        userDataInDatabase:
-          type: object
-          description: Data to store in the database for this session
-        tenantId:
-          type: string
-          description: Optional tenant ID for multi-tenant apps
-    Token:
-      type: object
-      description: A token object with value and expiry
-      properties:
-        token:
-          type: string
-        expiry:
-          type: integer
-          description: Token expiry timestamp in milliseconds
-        createdTime:
-          type: integer
-    Session:
-      type: object
-      description: A SuperTokens authentication session
-      properties:
-        handle:
-          type: string
-          description: Unique session handle
-        userId:
-          type: string
-          description: User ID this session belongs to
-        userDataInJWT:
-          type: object
-          description: Data stored in the JWT
-        tenantId:
-          type: string
-          description: Tenant ID for multi-tenant apps
-        recipeUserId:
-          type: string
-          description: Recipe-specific user ID
-    RefreshSessionRequest:
-      type: object
-      required:
-      - refreshToken
-      properties:
-        refreshToken:
-          type: string
-        antiCsrfToken:
-          type: string
-        tenantId:
-          type: string
-    RemoveSessionsRequest:
-      type: object
-      properties:
-        sessionHandles:
-          type: array
-          items:
-            type: string
-          description: List of session handles to revoke
-        userId:
-          type: string
-          description: Remove all sessions for this user
-    SessionDataResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        userDataInDatabase:
-          type: object
-    CreateSessionResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
-        session:
-          $ref: '#/components/schemas/Session'
-        accessToken:
-          $ref: '#/components/schemas/Token'
-        refreshToken:
-          $ref: '#/components/schemas/Token'
-        antiCsrfToken:
-          type: string
     GetSessionResponse:
       type: object
       properties:
@@ -288,6 +186,40 @@ components:
           - TRY_REFRESH_TOKEN
         message:
           type: string
+    UpdateSessionDataRequest:
+      type: object
+      required:
+      - sessionHandle
+      - userDataInDatabase
+      properties:
+        sessionHandle:
+          type: string
+        userDataInDatabase:
+          type: object
+    SessionDataResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        userDataInDatabase:
+          type: object
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    Token:
+      type: object
+      description: A token object with value and expiry
+      properties:
+        token:
+          type: string
+        expiry:
+          type: integer
+          description: Token expiry timestamp in milliseconds
+        createdTime:
+          type: integer
     RemoveSessionsResponse:
       type: object
       properties:
@@ -297,12 +229,80 @@ components:
           type: array
           items:
             type: string
-    StatusResponse:
+    RemoveSessionsRequest:
+      type: object
+      properties:
+        sessionHandles:
+          type: array
+          items:
+            type: string
+          description: List of session handles to revoke
+        userId:
+          type: string
+          description: Remove all sessions for this user
+    RefreshSessionRequest:
+      type: object
+      required:
+      - refreshToken
+      properties:
+        refreshToken:
+          type: string
+        antiCsrfToken:
+          type: string
+        tenantId:
+          type: string
+    CreateSessionRequest:
+      type: object
+      required:
+      - userId
+      - userDataInJWT
+      - userDataInDatabase
+      properties:
+        userId:
+          type: string
+          description: Unique user identifier
+        userDataInJWT:
+          type: object
+          description: Data to embed in the JWT access token
+        userDataInDatabase:
+          type: object
+          description: Data to store in the database for this session
+        tenantId:
+          type: string
+          description: Optional tenant ID for multi-tenant apps
+    Session:
+      type: object
+      description: A SuperTokens authentication session
+      properties:
+        handle:
+          type: string
+          description: Unique session handle
+        userId:
+          type: string
+          description: User ID this session belongs to
+        userDataInJWT:
+          type: object
+          description: Data stored in the JWT
+        tenantId:
+          type: string
+          description: Tenant ID for multi-tenant apps
+        recipeUserId:
+          type: string
+          description: Recipe-specific user ID
+    CreateSessionResponse:
       type: object
       properties:
         status:
           type: string
           example: OK
+        session:
+          $ref: '#/components/schemas/Session'
+        accessToken:
+          $ref: '#/components/schemas/Token'
+        refreshToken:
+          $ref: '#/components/schemas/Token'
+        antiCsrfToken:
+          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -87,14 +87,6 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
-    UserMetadataResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        metadata:
-          type: object
-          description: Arbitrary key-value metadata for the user
     UpdateUserMetadataRequest:
       type: object
       required:
@@ -106,6 +98,14 @@ components:
         metadataUpdate:
           type: object
           description: Metadata fields to merge into existing metadata
+    UserMetadataResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        metadata:
+          type: object
+          description: Arbitrary key-value metadata for the user
     StatusResponse:
       type: object
       properties:

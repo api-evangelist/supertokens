@@ -80,6 +80,23 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
+    ListUsersResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        nextPaginationToken:
+          type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
     User:
       type: object
       description: A SuperTokens user object
@@ -115,23 +132,6 @@ components:
           type: array
           items:
             type: object
-    ListUsersResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        nextPaginationToken:
-          type: string
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
