@@ -124,23 +124,15 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
-    CreateRoleRequest:
-      type: object
-      required:
-      - role
-      properties:
-        role:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-    StatusResponse:
+    UserRolesResponse:
       type: object
       properties:
         status:
           type: string
-          example: OK
+        roles:
+          type: array
+          items:
+            type: string
     ListRolesResponse:
       type: object
       properties:
@@ -150,12 +142,14 @@ components:
           type: array
           items:
             type: string
-    UserRolesResponse:
+    CreateRoleRequest:
       type: object
+      required:
+      - role
       properties:
-        status:
+        role:
           type: string
-        roles:
+        permissions:
           type: array
           items:
             type: string
@@ -171,6 +165,12 @@ components:
           type: string
         tenantId:
           type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
