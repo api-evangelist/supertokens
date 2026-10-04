@@ -82,6 +82,31 @@ paths:
                 $ref: '#/components/schemas/ListTenantsResponse'
 components:
   schemas:
+    ListTenantsResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        tenants:
+          type: array
+          items:
+            type: object
+            properties:
+              tenantId:
+                type: string
+    TenantRequest:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        emailPasswordEnabled:
+          type: boolean
+        passwordlessEnabled:
+          type: boolean
+        thirdPartyEnabled:
+          type: boolean
+        coreConfig:
+          type: object
     TenantResponse:
       type: object
       properties:
@@ -100,31 +125,6 @@ components:
               type: boolean
             thirdPartyEnabled:
               type: boolean
-    TenantRequest:
-      type: object
-      properties:
-        tenantId:
-          type: string
-        emailPasswordEnabled:
-          type: boolean
-        passwordlessEnabled:
-          type: boolean
-        thirdPartyEnabled:
-          type: boolean
-        coreConfig:
-          type: object
-    ListTenantsResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        tenants:
-          type: array
-          items:
-            type: object
-            properties:
-              tenantId:
-                type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -87,6 +87,12 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
     UserMetadataResponse:
       type: object
       properties:
@@ -106,12 +112,6 @@ components:
         metadataUpdate:
           type: object
           description: Metadata fields to merge into existing metadata
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

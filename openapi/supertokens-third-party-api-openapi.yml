@@ -48,6 +48,29 @@ paths:
                 $ref: '#/components/schemas/ThirdPartySignInUpResponse'
 components:
   schemas:
+    ThirdPartySignInUpRequest:
+      type: object
+      required:
+      - thirdPartyId
+      - thirdPartyUserId
+      - email
+      properties:
+        thirdPartyId:
+          type: string
+          description: Provider ID (e.g. google, github, apple)
+        thirdPartyUserId:
+          type: string
+          description: User ID from the third-party provider
+        email:
+          type: object
+          properties:
+            id:
+              type: string
+              format: email
+            isVerified:
+              type: boolean
+        tenantId:
+          type: string
     User:
       type: object
       description: A SuperTokens user object
@@ -92,29 +115,6 @@ components:
           type: boolean
         user:
           $ref: '#/components/schemas/User'
-    ThirdPartySignInUpRequest:
-      type: object
-      required:
-      - thirdPartyId
-      - thirdPartyUserId
-      - email
-      properties:
-        thirdPartyId:
-          type: string
-          description: Provider ID (e.g. google, github, apple)
-        thirdPartyUserId:
-          type: string
-          description: User ID from the third-party provider
-        email:
-          type: object
-          properties:
-            id:
-              type: string
-              format: email
-            isVerified:
-              type: boolean
-        tenantId:
-          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
