@@ -1,0 +1,101 @@
+slug: supertokens
+provider: SuperTokens
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 9
+edges:
+- tag: User Roles
+  spec_file: supertokens-user-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.92
+  evidence: PUT /recipe/roles createOrUpdateRole; PUT /recipe/user/roles assignRoleToUser; DELETE /recipe/user/roles
+    removeUserRole
+  reason: Role definition and assignment to users is role-based access control, squarely Identity & Access
+    Management.
+- tag: Email Password
+  spec_file: supertokens-email-password-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.9
+  evidence: POST /recipe/signup  emailPasswordSignUp  Email Password Sign Up ... POST /recipe/user/password/reset  resetPassword  Reset
+    Password
+  reason: Operations perform user authentication credential sign-up/sign-in and password reset — identity
+    and access management functionality delivered by an authentication platform.
+- tag: Email Verification
+  spec_file: supertokens-email-verification-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /recipe/user/email/verify  verifyEmail  Verify Email
+  reason: Email verification token issuance and validation is part of the user identity lifecycle in an
+    auth service, i.e. identity & access management.
+- tag: Passwordless
+  spec_file: supertokens-passwordless-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /recipe/signinup/code  createPasswordlessCode  Create Passwordless Code
+  reason: Passwordless login code issuance and consumption returning a User — authentication/identity
+    and access management.
+- tag: Sessions
+  spec_file: supertokens-sessions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /recipe/session  createSession  Create Session ... POST /recipe/session/refresh  refreshSession
+  reason: Session creation, refresh, revocation and session data management with Token schema is access-session
+    management, squarely identity & access management.
+- tag: Third Party
+  spec_file: supertokens-third-party-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /recipe/signinup  thirdPartySignInUp  Third Party Sign In / Up
+  reason: Social/third-party identity-provider sign-in and user provisioning — federated authentication,
+    i.e. identity & access management.
+- tag: Users
+  spec_file: supertokens-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: GET /users listUsers; DELETE /user/remove deleteUser, within "the REST API exposed by the
+    supertokens-core HTTP service" for authentication operations
+  reason: User account listing and deletion in an authentication service is identity lifecycle management,
+    not CRM customer data.
+- tag: Multi Tenancy
+  spec_file: supertokens-multi-tenancy-api-openapi.yml
+  capability_id: BC-4230
+  capability_id_l1: BC-4230
+  capability_name: SaaS Tenant Management
+  confidence: 0.75
+  evidence: POST /recipe/multitenancy/tenant  createOrUpdateTenant  Create Or Update Tenant
+  reason: Creates, updates and lists tenants in a multi-tenant service, which is SaaS tenant management.
+    Ambiguous between tenant provisioning/lifecycle and tenant identity federation (the tenant config
+    governs login recipes), so L1 only.
+- tag: User Metadata
+  spec_file: supertokens-user-metadata-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: GET /recipe/user/metadata getUserMetadata; PUT /recipe/user/metadata updateUserMetadata —
+    part of the CDI for "authentication operations including session management, user sign-up/sign-in"
+  reason: SuperTokens is an authentication/identity platform; user metadata records attached to authenticated
+    identities are part of identity & access management, not customer master data.

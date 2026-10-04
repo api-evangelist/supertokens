@@ -323,6 +323,9 @@ apis:
   - type: Vocabulary
     url: https://raw.githubusercontent.com/api-evangelist/supertokens/refs/heads/main/vocabulary/supertokens-vocabulary.yml
 common:
+- type: CapabilityMap
+  url: capabilities/supertokens-capability-edges.yml
+  name: SuperTokens Business Capability Map
 - type: Website
   url: https://{supertokens-core-host}:{port}
 - type: Releases
