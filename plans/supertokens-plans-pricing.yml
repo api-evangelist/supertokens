@@ -127,3 +127,40 @@ plans:
     elements:
       - name: Pay only for add-ons
       - name: Self-hosted core remains free
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  - subscription
+  units:
+  - active-user
+  - period
+  - seat
+  plans:
+  - name: Free (Self-hosted)
+    access: freemium
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Cloud (Managed)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - active-user
+    periods:
+    - month
+  - name: Self-hosted Paid Add-ons
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - active-user
+    - seat
+    periods:
+    - month
