@@ -92,42 +92,6 @@ paths:
                 $ref: '#/components/schemas/IsEmailVerifiedResponse'
 components:
   schemas:
-    EmailVerificationTokenResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - OK
-          - EMAIL_ALREADY_VERIFIED_ERROR
-        token:
-          type: string
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
-    EmailVerificationTokenRequest:
-      type: object
-      required:
-      - userId
-      - email
-      properties:
-        userId:
-          type: string
-        email:
-          type: string
-          format: email
-        tenantId:
-          type: string
-    IsEmailVerifiedResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        isVerified:
-          type: boolean
     VerifyEmailRequest:
       type: object
       required:
@@ -141,6 +105,42 @@ components:
         token:
           type: string
         tenantId:
+          type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    IsEmailVerifiedResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        isVerified:
+          type: boolean
+    EmailVerificationTokenRequest:
+      type: object
+      required:
+      - userId
+      - email
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+          format: email
+        tenantId:
+          type: string
+    EmailVerificationTokenResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - OK
+          - EMAIL_ALREADY_VERIFIED_ERROR
+        token:
           type: string
   securitySchemes:
     ApiKeyAuth:

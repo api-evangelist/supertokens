@@ -135,6 +135,21 @@ components:
           type: array
           items:
             type: string
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
+    UserRolesResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
     AssignRoleRequest:
       type: object
       required:
@@ -147,22 +162,7 @@ components:
           type: string
         tenantId:
           type: string
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
     ListRolesResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-    UserRolesResponse:
       type: object
       properties:
         status:

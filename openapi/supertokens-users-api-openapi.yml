@@ -115,6 +115,12 @@ components:
           type: array
           items:
             type: object
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
     ListUsersResponse:
       type: object
       properties:
@@ -126,12 +132,6 @@ components:
             $ref: '#/components/schemas/User'
         nextPaginationToken:
           type: string
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

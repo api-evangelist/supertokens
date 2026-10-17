@@ -87,12 +87,6 @@ paths:
                 $ref: '#/components/schemas/StatusResponse'
 components:
   schemas:
-    StatusResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          example: OK
     UserMetadataResponse:
       type: object
       properties:
@@ -101,6 +95,12 @@ components:
         metadata:
           type: object
           description: Arbitrary key-value metadata for the user
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: OK
     UpdateUserMetadataRequest:
       type: object
       required:
